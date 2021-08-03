@@ -51,6 +51,7 @@ CREATE TABLE product_details (
     category category NOT NULL,
     description TEXT,
     status status NOT NULL,
+    user_register_id BIGSERIAL NOT NULL,
     PRIMARY KEY(product_id),
     CONSTRAINT fk_product_user
         FOREIGN KEY(user_register_id)
@@ -65,14 +66,15 @@ CREATE TABLE app_user_detail (
     phone_number INTEGER,
     email VARCHAR(30) NOT NULL,
     photo BYTEA,
-    liked_product_ids BIGSERIAL[],
+    liked_product_ids INTEGER[],
+    user_register_id BIGSERIAL NOT NULL,
     PRIMARY KEY(user_detail_id),
     CONSTRAINT fk_user_register_detail
-         FOREIGN KEY(user_register_id )
-             REFERENCES app_user_register(user_register_id) NOT NULL
+         FOREIGN KEY(user_register_id)
+             REFERENCES app_user_register(user_register_id)
 --     CONSTRAINT fk_liked_product_user
---                              FOREIGN KEY(liked_product_ids)
---                              REFERENCES product_details(product_id)
+--          FOREIGN KEY(liked_product_ids)
+--             REFERENCES product_details(product_id)
 
 );
 
@@ -80,8 +82,9 @@ CREATE TABLE product_photos (
     photo_id BIGSERIAL NOT NULL,
     img_name VARCHAR(20) NOT NULL,
     img BYTEA NOT NULL,
+    product_id BIGSERIAL NOT NULL,
     CONSTRAINT fk_product_photo_detail
-                            FOREIGN KEY(product_id)
-                            REFERENCES product_details(product_id) NOT NULL
+        FOREIGN KEY(product_id)
+            REFERENCES product_details(product_id)
 );
 
