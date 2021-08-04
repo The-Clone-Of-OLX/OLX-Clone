@@ -20,7 +20,7 @@ CREATE TABLE app_user_register (
     f_name  VARCHAR(15) NOT NULL,
     l_name VARCHAR(20) NOT NULL,
     username VARCHAR(20) NOT NULL,
-    password VARCHAR(20) NOT NULL,
+    password VARCHAR(100) NOT NULL,
     PRIMARY KEY(user_register_id)
 );
 
@@ -87,4 +87,12 @@ CREATE TABLE product_photos (
         FOREIGN KEY(product_id)
             REFERENCES product_details(product_id)
 );
+
+INSERT INTO app_user_register (f_name, l_name, username, password)
+VALUES (
+        'admin',
+        'admin',
+        'admin',
+        '$2a$10$6l5lmpxymHc9MNAumCPljeOZaLuSDrchoX5IZHlai2duUzi0jZjNa'
+       );
 
