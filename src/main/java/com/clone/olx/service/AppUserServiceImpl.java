@@ -17,16 +17,16 @@ public class AppUserServiceImpl implements AppUserService{
 
     @Override
     public AppUser saveAppUser(AppUser appUser) {
-        return null;
+        return appUserRepository.save(appUser);
     }
 
     @Override
     public AppUser getAppUser(String username) {
-        return null;
+        return appUserRepository.findByUsername(username);
     }
 
     @Override
     public List<AppUser> getUsers() {
-        return null;
+        return appUserRepository.findAll();
     }
 }
