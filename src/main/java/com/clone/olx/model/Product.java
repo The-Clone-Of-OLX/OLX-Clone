@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -18,14 +19,14 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long product_id;
+    private UUID product_id;
     private String title;
     private BigDecimal price;
     private Currency currency;
     private Category category;
     private String description;
     private Status status;
-    private Long user_register_id;
+    private UUID app_user_id;
     @ElementCollection
-    private List<byte[]> photos;
+    private List<UUID> photos;
 }

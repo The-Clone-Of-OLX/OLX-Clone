@@ -5,9 +5,10 @@ import com.clone.olx.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.UUID;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findByCategory(Category category);
     List<Product> findByTitleContains(String title);
-    List<Product> findByUser_register_idEquals(Long user_register_id);
+    List<Product> findByApp_user_id(UUID app_user_id);
 }

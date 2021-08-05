@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Long id) {
+    public Product getProductById(UUID id) {
         return productRepository.getById(id);
     }
 
@@ -38,7 +39,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductsByUserId(Long id) {
-        return productRepository.findByUser_register_idEquals(id);
+    public List<Product> getProductsByAppUserId(UUID id) {
+        return productRepository.findByApp_user_id(id);
     }
+
 }

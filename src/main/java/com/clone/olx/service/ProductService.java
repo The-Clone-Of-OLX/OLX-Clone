@@ -4,11 +4,12 @@ import com.clone.olx.enums.Category;
 import com.clone.olx.model.Product;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface ProductService {
     Product saveProduct(Product product);
-    Product getProductById(Long id);
+    Product getProductById(UUID id);
     List<Product> getProductsByTitle(String title);
     List<Product> getProductsByCategory(Category category);
-    List<Product> getProductsByUserId(Long id);
+    List<Product> getProductsByAppUserId(UUID id);
 }

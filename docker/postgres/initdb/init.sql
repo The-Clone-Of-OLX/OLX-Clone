@@ -15,13 +15,29 @@ CREATE DATABASE olx_database WITH
     LC_CTYPE = 'en_US.UTF-8'
     CONNECTION LIMIT = -1;
 
-CREATE TABLE app_user_register (
-    user_register_id BIGSERIAL NOT NULL,
+CREATE TABLE photos (
+    photo_id UUID NOT NULL,
+    img_name VARCHAR(20) NOT NULL,
+    img BYTEA NOT NULL,
+    PRIMARY KEY(photo_id)
+);
+
+CREATE TABLE app_user (
+    app_user_id UUID NOT NULL,
     f_name  VARCHAR(15) NOT NULL,
     l_name VARCHAR(20) NOT NULL,
     username VARCHAR(20) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    PRIMARY KEY(user_register_id)
+    country VARCHAR(20) NOT NULL,
+    town VARCHAR(20) NOT NULL,
+    phone_number TEXT,
+    email VARCHAR(30) NOT NULL,
+    liked_product_ids UUID[],
+    avatar UUID,
+    PRIMARY KEY(app_user_id),
+    CONSTRAINT fk_user_photo
+      FOREIGN KEY(avatar)
+        REFERENCES photos(photo_id)
 );
 
 CREATE TYPE currency AS ENUM (
@@ -44,55 +60,48 @@ CREATE TYPE status AS ENUM (
 );
 
 CREATE TABLE product_details (
-    product_id BIGSERIAL NOT NULL,
+    product_id UUID NOT NULL,
     title VARCHAR (30) NOT NULL,
     price MONEY NOT NULL,
     currency currency NOT NULL,
     category category NOT NULL,
     description TEXT,
     status status NOT NULL,
-    user_register_id BIGSERIAL NOT NULL,
+    app_user_id UUID NOT NULL,
+    photos UUID[],
     PRIMARY KEY(product_id),
     CONSTRAINT fk_product_user
-        FOREIGN KEY(user_register_id)
-            REFERENCES app_user_register(user_register_id)
+        FOREIGN KEY(app_user_id)
+            REFERENCES app_user(app_user_id)
 
 );
 
-CREATE TABLE app_user_detail (
-    user_detail_id BIGSERIAL NOT NULL,
-    country VARCHAR(20) NOT NULL,
-    town VARCHAR(20) NOT NULL,
-    phone_number INTEGER,
-    email VARCHAR(30) NOT NULL,
-    photo BYTEA,
-    liked_product_ids INTEGER[],
-    user_register_id BIGSERIAL NOT NULL,
-    PRIMARY KEY(user_detail_id),
-    CONSTRAINT fk_user_register_detail
-         FOREIGN KEY(user_register_id)
-             REFERENCES app_user_register(user_register_id)
---     CONSTRAINT fk_liked_product_user
---          FOREIGN KEY(liked_product_ids)
---             REFERENCES product_details(product_id)
+-- CREATE TABLE app_user_detail (
+--     user_detail_id BIGSERIAL NOT NULL,
+--     country VARCHAR(20) NOT NULL,
+--     town VARCHAR(20) NOT NULL,
+--     phone_number INTEGER,
+--     email VARCHAR(30) NOT NULL,
+--     photo BYTEA,
+--     liked_product_ids INTEGER[],
+--     user_register_id BIGSERIAL NOT NULL,
+--     PRIMARY KEY(user_detail_id),
+--     CONSTRAINT fk_user_register_detail
+--          FOREIGN KEY(user_register_id)
+--              REFERENCES app_user_register(user_register_id)
+-- --     CONSTRAINT fk_liked_product_user
+-- --          FOREIGN KEY(liked_product_ids)
+-- --             REFERENCES product_details(product_id)
+--
+-- );
 
-);
 
-CREATE TABLE product_photos (
-    photo_id BIGSERIAL NOT NULL,
-    img_name VARCHAR(20) NOT NULL,
-    img BYTEA NOT NULL,
-    product_id BIGSERIAL NOT NULL,
-    CONSTRAINT fk_product_photo_detail
-        FOREIGN KEY(product_id)
-            REFERENCES product_details(product_id)
-);
 
-INSERT INTO app_user_register (f_name, l_name, username, password)
-VALUES (
-        'admin',
-        'admin',
-        'admin',
-        '$2a$10$6l5lmpxymHc9MNAumCPljeOZaLuSDrchoX5IZHlai2duUzi0jZjNa'
-       );
+-- INSERT INTO app_user_register (f_name, l_name, username, password)
+-- VALUES (
+--         'admin',
+--         'admin',
+--         'admin',
+--         '$2a$10$6l5lmpxymHc9MNAumCPljeOZaLuSDrchoX5IZHlai2duUzi0jZjNa'
+--        );
 
