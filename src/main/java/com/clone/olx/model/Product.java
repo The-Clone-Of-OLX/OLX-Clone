@@ -19,14 +19,14 @@ import java.util.UUID;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID product_id;
+    private UUID productId;
     private String title;
     private BigDecimal price;
     private Currency currency;
     private Category category;
     private String description;
     private Status status;
-    private UUID app_user_id;
+    private UUID appUserId;
     @ElementCollection
     private List<UUID> photos;
 }

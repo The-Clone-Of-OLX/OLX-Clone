@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface AppUserRepository extends JpaRepository<AppUser, UUID> {
     AppUser findByUsername(String username);
-    AppUser findByApp_user_id(UUID user_register_id);
+    AppUser findByApp_user_id(UUID appUserId);
 }

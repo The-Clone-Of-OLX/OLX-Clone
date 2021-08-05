@@ -24,15 +24,15 @@ CREATE TABLE photos (
 
 CREATE TABLE app_user (
     app_user_id UUID NOT NULL,
-    f_name  VARCHAR(15) NOT NULL,
-    l_name VARCHAR(20) NOT NULL,
+    first_name  VARCHAR(15) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
     username VARCHAR(20) NOT NULL,
     password VARCHAR(100) NOT NULL,
     country VARCHAR(20) NOT NULL,
     town VARCHAR(20) NOT NULL,
     phone_number TEXT,
     email VARCHAR(30) NOT NULL,
-    liked_product_ids UUID[],
+    liked_products UUID[],
     avatar UUID,
     PRIMARY KEY(app_user_id),
     CONSTRAINT fk_user_photo

@@ -12,17 +12,17 @@ import java.util.UUID;
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID app_user_id;
-    private String f_name;
-    private String l_name;
+    private UUID appUserId;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
 
     private String country;
     private String town;
-    private String phone_number;
+    private String phoneNumber;
     private String email;
     @ElementCollection
-    private List<UUID> liked_products;
+    private List<UUID> likedProducts;
     private UUID avatar;
 }
