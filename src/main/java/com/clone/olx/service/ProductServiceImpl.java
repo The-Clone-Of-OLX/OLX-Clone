@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(UUID productId) {
-        return productRepository.getById(productId);
+        return productRepository.getOne(productId);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProductsByAppUserId(UUID appUserId) {
-        return productRepository.findByApp_user_id(appUserId);
+        return null;
     }
 
 }
