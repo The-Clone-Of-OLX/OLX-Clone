@@ -76,6 +76,18 @@ CREATE TABLE product_details (
 
 );
 
+CREATE TABLE app_user_liked_products (
+    app_user_app_user_id UUID NOT NULL,
+    liked_products UUID NOT NULL
+);
+
+CREATE TABLE product_details_photos (
+    product_details_product_id UUID NOT NULL,
+    photos UUID NOT NULL
+);
+
+
+
 -- CREATE TABLE app_user_detail (
 --     user_detail_id BIGSERIAL NOT NULL,
 --     country VARCHAR(20) NOT NULL,
