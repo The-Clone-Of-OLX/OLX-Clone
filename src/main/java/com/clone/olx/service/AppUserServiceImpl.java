@@ -5,6 +5,8 @@ import com.clone.olx.repository.AppUserRepository;
 import com.clone.olx.repository.ProductRepository;
 import com.clone.olx.requests.AppUserRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,7 @@ import java.util.UUID;
 public class AppUserServiceImpl implements AppUserService {
     private final AppUserRepository appUserRepository;
 //    private final ProductRepository productRepository;
+    private final static String USER_NOT_FOUND_MSG = "User with username %s not found";
 
     public AppUserServiceImpl(AppUserRepository appUserRepository) {
         this.appUserRepository = appUserRepository;
@@ -52,5 +55,12 @@ public class AppUserServiceImpl implements AppUserService {
     @Override
     public List<AppUser> getUsers() {
         return appUserRepository.findAll();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return appUserRepository.findByUsername(username).orElseThrow(() ->
+                new UsernameNotFoundException(
+                        String.format(USER_NOT_FOUND_MSG, username)));
     }
 }
