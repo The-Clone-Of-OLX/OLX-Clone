@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Author-Bold';
+	src: url(../fonts/Author-Bold.woff2) format('woff2'),
+	url(../fonts/Author-Bold.woff) format('woff'),
+	url(../fonts/Author-Bold.ttf) format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}

@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Author-MediumItalic';
+	src: url(../fonts/Author-MediumItalic.woff2) format('woff2'),
+	url(../fonts/Author-MediumItalic.woff) format('woff'),
+	url(../fonts/Author-MediumItalic.ttf) format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}

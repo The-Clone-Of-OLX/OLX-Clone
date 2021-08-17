@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Author-ExtralightItalic';
+	src: url(../fonts/Author-ExtralightItalic.woff2) format('woff2'),
+	url(../fonts/Author-ExtralightItalic.woff) format('woff'),
+	url(../fonts/Author-ExtralightItalic.ttf) format('truetype');
+	font-weight: 200;
+	font-style: italic;
+}

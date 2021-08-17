@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Author-SemiboldItalic';
+	src: url(../fonts/Author-SemiboldItalic.woff2) format('woff2'),
+	url(../fonts/Author-SemiboldItalic.woff) format('woff'),
+	url(../fonts/Author-SemiboldItalic.ttf) format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}

@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Author-Semibold';
+	src: url(../fonts/Author-Semibold.woff2) format('woff2'),
+	url(../fonts/Author-Semibold.woff) format('woff'),
+	url(../fonts/Author-Semibold.ttf) format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
