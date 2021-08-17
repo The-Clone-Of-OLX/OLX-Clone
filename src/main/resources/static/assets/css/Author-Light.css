@@ -1,8 +1,0 @@
-@font-face {
-	font-family: 'Author-Light';
-	src: url(../fonts/Author-Light.woff2) format('woff2'),
-	url(../fonts/Author-Light.woff) format('woff'),
-	url(../fonts/Author-Light.ttf) format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}

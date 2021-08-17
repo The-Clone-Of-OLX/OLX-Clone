@@ -1,8 +1,0 @@
-@font-face {
-	font-family: 'Author-Variable';
-	src: url(../fonts/Author-Variable.woff2) format('woff2'),
-	url(../fonts/Author-Variable.woff) format('woff'),
-	url(../fonts/Author-Variable.ttf) format('truetype');
-	font-weight: 200 700;
-	font-style: normal;
-}

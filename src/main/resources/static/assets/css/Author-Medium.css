@@ -1,8 +1,0 @@
-@font-face {
-	font-family: 'Author-Medium';
-	src: url(../fonts/Author-Medium.woff2) format('woff2'),
-	url(../fonts/Author-Medium.woff) format('woff'),
-	url(../fonts/Author-Medium.ttf) format('truetype');
-	font-weight: 500;
-	font-style: normal;
-}
