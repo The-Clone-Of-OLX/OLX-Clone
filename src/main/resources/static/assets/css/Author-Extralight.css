@@ -3,6 +3,6 @@
 	src: url(../fonts/Author-Extralight.woff2) format('woff2'),
 	url(../fonts/Author-Extralight.woff) format('woff'),
 	url(../fonts/Author-Extralight.ttf) format('truetype');
-	font-weight: 200;
+	font-weight: 400;
 	font-style: normal;
 }

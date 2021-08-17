@@ -1,0 +1,139 @@
+.login-form {
+    background: initial;
+    padding: 200px 0px;
+}
+
+
+.login-form .form-container {
+    display: table;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    border-width: 5px;
+    border-radius: 27px;
+    background: #f9f9f9;
+}
+
+.login-form form {
+    width: 100%;
+    padding: 4% 3%;
+    color: #30323B;
+    background: rgb(249, 249, 249);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form .column-1 {
+    width: 30%;
+    min-width: 200px;
+    padding: 7% 3% 2% 3%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form .column-2 {
+    width: 70%;
+    padding: 2% 3% 2% 3%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*@media (max-width: 991px) {*/
+/*    .login-form form {*/
+/*        padding: 40px;*/
+/*    }*/
+/*}*/
+
+.login-form form h2 {
+    font-size: 52px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-family: Author-Bold;
+}
+
+.login-form form .form-control {
+    background: #f7f9fc;
+    margin-bottom: 12px;
+    border: 1px solid #30323B;
+    border-radius: 13px;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 6px;
+    height: 40px;
+    font-family: Author-Extralight;
+}
+
+
+.login-form form .form-check {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.login-form form .btn-primary {
+    background: #fe6d2c;
+    border: none;
+    border-radius: 13px;
+    padding: 3px;
+    box-shadow: none;
+    margin-top: 35px;
+    text-shadow: none;
+    outline: none !important;
+    font-family: Author-Semibold;
+    font-size: 23px;
+}
+
+.login-form form .btn-primary:hover {
+    background: #fc9e46;
+}
+
+.login-form form .btn-primary:active {
+    background: #1a1e21;
+}
+
+.login-form form .small-text {
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none;
+    font-family: Author-Extralight;
+}
+
+.login-form form .btn-outline-primary {
+    font-family: Author-Semibold;
+    font-size: 23px;
+    padding: 3px;
+    background: #f9f9f9;
+    color: #30323B;
+    border-radius: 13px;
+    border-color: #30323B;
+}
+
+.login-form form .btn-outline-primary:hover {
+    background: #A1A1A1;
+}
+
+.login-form form .btn-outline-primary:active {
+    background: #30323B;
+    color: white;
+}
+
+.notification {
+    font-size: 17px;
+    font-weight: 400;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none;
+    font-family: Author-Extralight;
+    border-radius: 13px;
+    padding: 3px;
+    text-align: center;
+}
+
