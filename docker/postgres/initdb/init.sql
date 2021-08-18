@@ -88,26 +88,6 @@ CREATE TABLE product_details_photos (
 
 
 
--- CREATE TABLE app_user_detail (
---     user_detail_id BIGSERIAL NOT NULL,
---     country VARCHAR(20) NOT NULL,
---     town VARCHAR(20) NOT NULL,
---     phone_number INTEGER,
---     email VARCHAR(30) NOT NULL,
---     photo BYTEA,
---     liked_product_ids INTEGER[],
---     user_register_id BIGSERIAL NOT NULL,
---     PRIMARY KEY(user_detail_id),
---     CONSTRAINT fk_user_register_detail
---          FOREIGN KEY(user_register_id)
---              REFERENCES app_user_register(user_register_id)
--- --     CONSTRAINT fk_liked_product_user
--- --          FOREIGN KEY(liked_product_ids)
--- --             REFERENCES product_details(product_id)
---
--- );
-
-
 
 -- INSERT INTO app_user_register (f_name, l_name, username, password)
 -- VALUES (
