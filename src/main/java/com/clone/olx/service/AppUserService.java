@@ -13,7 +13,13 @@ public interface AppUserService extends UserDetailsService {
 
     AppUser saveAppUser(AppUser appUser);
 
+    String signUpUser(AppUser appUser);
+
     Optional<AppUser> getAppUser(String username);
 
     List<AppUser> getUsers();
+
+    String getUsername();
+
+    UUID getUUID();
 }

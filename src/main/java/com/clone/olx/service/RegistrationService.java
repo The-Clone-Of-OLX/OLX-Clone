@@ -16,8 +16,8 @@ public class RegistrationService {
         this.appUserService = appUserService;
     }
 
-
     public UUID register(AppUserRequest request) {
         return appUserService.createAppUser(request);
     }
+
 }

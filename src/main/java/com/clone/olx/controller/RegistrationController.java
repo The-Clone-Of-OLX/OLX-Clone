@@ -29,7 +29,7 @@ public class RegistrationController {
     @PostMapping("/success")
     public String processRegistration(@Validated AppUser appUser, RedirectAttributes redirectAttributes) {
         try {
-            appUserService.saveAppUser(appUser);
+            appUserService.signUpUser(appUser);
         } catch (Exception e) {
             redirectAttributes.addAttribute("registration-failed", true);
             return "redirect:/registration";
