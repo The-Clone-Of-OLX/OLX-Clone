@@ -31,6 +31,7 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     //for rest controller
+    @Override
     public UUID createAppUser(AppUserRequest request) {
         AppUser newAppUser = new AppUser(
                 request.getFirstName(),
