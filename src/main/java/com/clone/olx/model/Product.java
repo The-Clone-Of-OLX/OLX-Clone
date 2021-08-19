@@ -17,6 +17,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
+@RequiredArgsConstructor
 //@RequiredArgsConstructor
 //@NoArgsConstructor
 //@AllArgsConstructor
@@ -46,5 +47,19 @@ public class Product {
     @Override
     public int hashCode() {
         return 2042274511;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Product(UUID productId, String title, BigDecimal price, Currency currency, Category category, String description, Status status) {
+        this.productId = productId;
+        this.title = title;
+        this.price = price;
+        this.currency = currency;
+        this.category = category;
+        this.description = description;
+        this.status = status;
     }
 }

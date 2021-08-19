@@ -98,7 +98,6 @@ public class AppUserServiceImpl implements AppUserService {
             principal = (AppUser) securityContext.getAuthentication().getPrincipal();
             username = securityContext.getAuthentication().getName();
             name = principal.getFirstName() + " " + principal.getLastName() + " (" + username + ") ";
-
         }
         return name;
     }
