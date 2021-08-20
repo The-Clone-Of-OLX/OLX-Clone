@@ -104,8 +104,8 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         <div class="col-md-8 column-rounded">
             <a th:text="'Price: ' + ${product1.getPrice()}" class="display-2"> </a>
             <a th:text="${product1.getCurrency().name()}" class="display-2"></a>
-            <p th:text="${product1.getDescription()}" class="font-light text-justify">
-            </p>
+            <pre th:text="${product1.getDescription()}" class="font-light text-justify">
+            </pre>
         </div>
         <div class="col-md-3"></div>
     </div>

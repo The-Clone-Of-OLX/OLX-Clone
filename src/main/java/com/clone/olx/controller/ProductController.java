@@ -42,11 +42,12 @@ public class ProductController {
                 BigDecimal.valueOf(5000),
                 Currency.EUR,
                 Category.Cars,
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor\n" +
-                        "            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\n" +
-                        "            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit\n" +
-                        "            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa\n" +
-                        "            qui officia deserunt mollit anim id est laborum.",
+                "Wystawiam na sprzedaż BMW serii 4 420d Modern Line. \n" +
+                        "Samochód kupiony w październiku 2020 od osoby prywatnej.\n" +
+                        "Samochód używany przez osobę prywatną, garażowany, serwisowany w M-Service Serwis samochodów BMW w Czerwinie. \n" +
+                        "Ostatni przegląd wykonany w maju 2021r. (wymiana oleju oraz piasty). \n" +
+                        "W październiku 2020r. przy przebiegu 220 000 km wymieniono tarcze i klocki hamulcowe, rozrząd oraz wykonano pełny serwis olejowy. \n" +
+                        "Samochód bez wkładu finansowego. Sprzedaję jako osoba prywatna.",
                 Status.AVAILABLE,
                 UUID.fromString("3ebca2c6-80e4-40c8-8e67-1911ab85ab31"));
 
