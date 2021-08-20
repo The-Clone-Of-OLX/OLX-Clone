@@ -3,11 +3,89 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>OLX-Login</title>
     <meta property="og:type" content="website">
     <title th:text="${product1.getTitle()}">Title</title>
+    <!--    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/Author-Bold.css">
+    <link rel="stylesheet" href="../assets/css/Author-Extralight.css">
+    <link rel="stylesheet" href="../assets/css/Author-Semibold.css">
+    <link rel="stylesheet" href="../assets/css/product-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5af5eb3f80.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<strong th:text="${product1.getDescription()}"></strong>
+<div class="container text-center">
+    <a th:text="${product1.getTitle()}" class="display-1"></a>
+    <div class="row">
+        <div class="col-md-9">
+            <div id="photosCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#photosCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#photosCarousel" data-slide-to="1"></li>
+                    <li data-target="#photosCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="../assets/img/test-product-photos/IMG_2634.jpeg"
+                             alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../assets/img/test-product-photos/IMG_2635.jpeg"
+                             alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../assets/img/test-product-photos/IMG_2638.jpeg"
+                             alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#photosCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#photosCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg"/>
+            <div class="name">Hubert Nakielski</div>
+            <div class="font-light">Poland, Ostroleka</div>
+            <iframe allowfullscreen frameborder="0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&amp;q=Poland%2C+Ostroleka&amp;zoom=6"
+                    loading="lazy" class="border rounded-pill" width="100%" height="200px"></iframe>
+
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#phoneNumber"
+                    aria-expanded="false" aria-controls="collapseExample">
+                <i class="fa-solid fa-phone"></i>
+                Click to call
+            </button>
+
+            <div class="collapse" id="phoneNumber">
+                <div class="card card-body">
+                    <a href="tel:+1123-456-7890">123-456-7890</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <a th:text="${product1.getPrice()}" class="display-1"> </a>
+        <a th:text="${product1.getCurrency().name()}" class="display-1"></a>
+        <div class="font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </div>
+</div>
+
 </body>
 </html>
