@@ -35,25 +35,12 @@ public class Product {
     @ElementCollection
     private List<UUID> photos;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Product product = (Product) o;
-
-        return Objects.equals(productId, product.productId);
-    }
-
-    @Override
-    public int hashCode() {
-        return 2042274511;
-    }
 
     public String getTitle() {
         return title;
     }
 
-    public Product(UUID productId, String title, BigDecimal price, Currency currency, Category category, String description, Status status) {
+    public Product(UUID productId, String title, BigDecimal price, Currency currency, Category category, String description, Status status, UUID appUserId) {
         this.productId = productId;
         this.title = title;
         this.price = price;
@@ -61,5 +48,6 @@ public class Product {
         this.category = category;
         this.description = description;
         this.status = status;
+        this.appUserId = appUserId;
     }
 }

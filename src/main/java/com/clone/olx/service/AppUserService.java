@@ -17,6 +17,8 @@ public interface AppUserService extends UserDetailsService {
 
     Optional<AppUser> getAppUser(String username);
 
+    Optional<AppUser> getAppUserByUUID(UUID uuid);
+
     List<AppUser> getUsers();
 
     String getUsername();

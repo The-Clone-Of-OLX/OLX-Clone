@@ -61,11 +61,15 @@
         </div>
         <div class="col-md-3 text-center">
             <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg"/>
-            <div class="name">Hubert Nakielski</div>
-            <div class="font-light">Poland, Ostroleka</div>
+            <div th:text="${user.isEmpty()} ? 'none' : ${user.get().getFirstName()} + ' ' + ${user.get().getLastName()}"
+                 class="name"></div>
+            <div th:text="${user.isEmpty()} ? 'none' : ${user.get().getCountry()} + ', ' + ${user.get().getTown()}"
+                 class="font-light">Poland, Ostroleka
+            </div>
             <iframe allowfullscreen frameborder="0"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&amp;q=Poland%2C+Ostroleka&amp;zoom=6"
-                    loading="lazy" class="rounded-pill" width="100%" height="200px"></iframe>
+                    th:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&amp;q=' + ${user.get().getCountry()} + '%2C+' + ${user.get().getTown()} + '&amp;zoom=6'"
+                    loading="lazy" class="rounded-pill" width="100%" height="200px">
+            </iframe>
 
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#phoneNumber"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -75,7 +79,8 @@
 
             <div class="collapse" id="phoneNumber">
                 <div class="card card-body">
-                    <a href="tel:+1123-456-7890">123-456-7890</a>
+                    <a th:text="${user.isEmpty()} ? 'none' : ${user.get().getPhoneNumber()}"
+                       th:href="'tel:' + ${user.get().getPhoneNumber()}"></a>
                 </div>
             </div>
         </div>
@@ -83,11 +88,7 @@
     <div class="col-md-9">
         <a th:text="${product1.getPrice()}" class="display-1"> </a>
         <a th:text="${product1.getCurrency().name()}" class="display-1"></a>
-        <div class="font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            qui officia deserunt mollit anim id est laborum.
+        <div th:text="${product1.getDescription()}" class="font-light">
         </div>
     </div>
 </div>

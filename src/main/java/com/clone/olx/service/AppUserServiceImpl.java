@@ -59,6 +59,11 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
+    public Optional<AppUser> getAppUserByUUID(UUID uuid) {
+        return appUserRepository.findById(uuid);
+    }
+
+    @Override
     public List<AppUser> getUsers() {
         return appUserRepository.findAll();
     }
