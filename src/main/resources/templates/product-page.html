@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta property="og:type" content="website">
-    <title th:text="${product1.getTitle()}">Title</title>
-    <!--    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">-->
+    <link rel="shortcut icon" type="image/png" href="../assets/img/black.png"/>
+    <link rel="apple-touch-icon" href="../assets/img/black.png">
+    <title th:text="${product1.getTitle()}"></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/Author-Bold.css">
@@ -60,7 +61,8 @@
             </div>
         </div>
         <div class="col-md-3 text-center column-rounded">
-            <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg" style="margin-top: 20%"/>
+            <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg"
+                 style="margin-top: 20%"/>
             <div th:text="${user.isEmpty()} ? 'none' : ${user.get().getFirstName()} + ' ' + ${user.get().getLastName()}"
                  class="display-2"></div>
             <div th:text="${user.isEmpty()} ? 'none' : ${user.get().getCountry()} + ', ' + ${user.get().getTown()}"
@@ -70,10 +72,17 @@
                     loading="lazy" class="rounded-pill" width="100%" height="200px">
             </iframe>
 
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#phoneNumber"
+            <button th:unless="${user.get().getPhoneNumber().isEmpty()}" class="btn btn-primary" type="button"
+                    data-toggle="collapse" data-target="#phoneNumber"
                     aria-expanded="false" aria-controls="collapseExample">
                 <i class="fa-solid fa-phone"></i>
-                Click to call
+                Phone
+            </button>
+
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#email"
+                    aria-expanded="false" aria-controls="collapseExample">
+                <i class="fa-solid fa-phone"></i>
+                E-mail
             </button>
 
             <div class="collapse" id="phoneNumber">
@@ -82,14 +91,24 @@
                        th:href="'tel:' + ${user.get().getPhoneNumber()}"></a>
                 </div>
             </div>
+            <div class="collapse" id="email">
+                <div class="card card-body">
+                    <a th:text="${user.isEmpty()} ? 'none' : ${user.get().getEmail()}"
+                       th:href="'mailto:' + ${user.get().getEmail()}"></a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-md-9">
-        <a th:text="'Price: ' + ${product1.getPrice()}" class="display-2"> </a>
-        <a th:text="${product1.getCurrency().name()}" class="display-2"></a>
-        <p th:text="${product1.getDescription()}" class="font-light text-justify">
-        </p>
+    <div class="row justify-content-around">
+        <div class="col-md-8 column-rounded">
+            <a th:text="'Price: ' + ${product1.getPrice()}" class="display-2"> </a>
+            <a th:text="${product1.getCurrency().name()}" class="display-2"></a>
+            <p th:text="${product1.getDescription()}" class="font-light text-justify">
+            </p>
+        </div>
+        <div class="col-md-3"></div>
     </div>
+
 </div>
 
 </body>

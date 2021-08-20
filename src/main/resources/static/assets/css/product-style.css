@@ -55,6 +55,10 @@
     margin-right: auto;
 }
 
+.row {
+    margin-bottom: 5%;
+}
+
 .display-2 {
     font-size: 30px;
     line-height: 1.5;
