@@ -1,6 +1,22 @@
+.row-login {
+    position:absolute; top: 25%;
+}
+
+@media (max-width: 1200px) {
+    .row-login {
+        position:absolute; top: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .row-login {
+        position:absolute; top: 0%;
+    }
+}
+
+
 .login-form {
     background: initial;
-    padding: 200px 0px;
 }
 
 
