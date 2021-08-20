@@ -27,9 +27,9 @@
 <body>
 <div class="container text-center">
     <a th:text="${product1.getTitle()}" class="display-1"></a>
-    <div class="row">
-        <div class="col-md-9">
-            <div id="photosCarousel" class="carousel slide" data-ride="carousel">
+    <div class="row justify-content-around">
+        <div class="col-md-8 column-rounded">
+            <div id="photosCarousel" class="carousel slide vertical-center" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#photosCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#photosCarousel" data-slide-to="1"></li>
@@ -59,13 +59,12 @@
                 </a>
             </div>
         </div>
-        <div class="col-md-3 text-center">
-            <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg"/>
+        <div class="col-md-3 text-center column-rounded">
+            <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg" style="margin-top: 20%"/>
             <div th:text="${user.isEmpty()} ? 'none' : ${user.get().getFirstName()} + ' ' + ${user.get().getLastName()}"
-                 class="name"></div>
+                 class="display-2"></div>
             <div th:text="${user.isEmpty()} ? 'none' : ${user.get().getCountry()} + ', ' + ${user.get().getTown()}"
-                 class="font-light">Poland, Ostroleka
-            </div>
+                 class="font-light"></div>
             <iframe allowfullscreen frameborder="0"
                     th:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&amp;q=' + ${user.get().getCountry()} + '%2C+' + ${user.get().getTown()} + '&amp;zoom=6'"
                     loading="lazy" class="rounded-pill" width="100%" height="200px">
@@ -86,10 +85,10 @@
         </div>
     </div>
     <div class="col-md-9">
-        <a th:text="${product1.getPrice()}" class="display-1"> </a>
-        <a th:text="${product1.getCurrency().name()}" class="display-1"></a>
-        <div th:text="${product1.getDescription()}" class="font-light">
-        </div>
+        <a th:text="'Price: ' + ${product1.getPrice()}" class="display-2"> </a>
+        <a th:text="${product1.getCurrency().name()}" class="display-2"></a>
+        <p th:text="${product1.getDescription()}" class="font-light text-justify">
+        </p>
     </div>
 </div>
 

@@ -50,7 +50,7 @@ public class ProductController {
                 Status.AVAILABLE,
                 UUID.fromString("3ebca2c6-80e4-40c8-8e67-1911ab85ab31"));
 
-        model.addAttribute("product1",showedProduct);
+        model.addAttribute("product1", showedProduct);
         model.addAttribute("user", appUserService.getAppUserByUUID(showedProduct.getAppUserId()));
 
         return "product-page";
