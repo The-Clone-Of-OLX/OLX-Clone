@@ -69,6 +69,7 @@ CREATE TABLE product_details (
     status status NOT NULL,
     app_user_id UUID NOT NULL,
     photos UUID[],
+    posting_date DATE NOT NULL DEFAULT CURRENT_DATE,
     PRIMARY KEY(product_id),
     CONSTRAINT fk_product_user
         FOREIGN KEY(app_user_id)
