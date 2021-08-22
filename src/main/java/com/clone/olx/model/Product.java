@@ -8,9 +8,8 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.text.DateFormat;
+import java.util.*;
 
 @Table(name = "product_details")
 @Entity
@@ -35,6 +34,12 @@ public class Product {
     @ElementCollection
     private List<UUID> photos;
 
+    @Transient
+    Locale locale = new Locale("en", "PL");
+    @Transient
+    DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
+    @Transient
+    String date = dateFormat.format(new Date());
 
     public String getTitle() {
         return title;
