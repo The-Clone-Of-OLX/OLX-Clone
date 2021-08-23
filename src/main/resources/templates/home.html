@@ -55,21 +55,19 @@
                     </form>
                 </div>
             </div>
-            <button type="button" th:if="${user == ''}">
 
-            </button>
             <div class="btn-group">
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${user}">
+                <button th:unless="${user == ''}" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${user}">
                     Login
                 </button>
-                <button type="button" th:if="${user == ''}">
-
+                <button th:if="${user == ''}" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login
                 </button>
+
                 <div class="dropdown-menu">
-                    <form th:action="@{/logout}" method="post">
-                        <input class="dropdown-item btn btn-info" type="submit" value="Logout">
-                    </form>
-                    <a class="dropdown-item" href="#">Registration</a>
+                    <a th:unless="${user == ''}" class="dropdown-item" th:href="@{/logout}">Logout</a>
+                    <a th:if="${user == ''}" class="dropdown-item" th:href="@{/login}">Login</a>
+                    <a th:if="${user == ''}" class="dropdown-item" th:href="@{/registration}">Registration</a>
                 </div>
             </div>
         </div>

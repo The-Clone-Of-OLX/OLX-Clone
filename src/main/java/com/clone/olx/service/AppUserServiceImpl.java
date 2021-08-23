@@ -99,10 +99,12 @@ public class AppUserServiceImpl implements AppUserService {
         AppUser principal;
         String username;
         String name = "";
-        if (null != securityContext.getAuthentication()) {
-            principal = (AppUser) securityContext.getAuthentication().getPrincipal();
-            username = securityContext.getAuthentication().getName();
-            name = principal.getFirstName() + " " + principal.getLastName() + " (" + username + ") ";
+        if (securityContext.getAuthentication().isAuthenticated()) {
+            if (!securityContext.getAuthentication().getPrincipal().equals("anonymousUser")) {
+                principal = (AppUser) securityContext.getAuthentication().getPrincipal();
+                username = securityContext.getAuthentication().getName();
+                name = principal.getFirstName() + " " + principal.getLastName() + " (" + username + ") ";
+            }
         }
         return name;
     }
@@ -113,9 +115,11 @@ public class AppUserServiceImpl implements AppUserService {
         AppUser principal;
         UUID id = null;
 
-        if (null != securityContext.getAuthentication()) {
-            principal = (AppUser) securityContext.getAuthentication().getPrincipal();
-            id = principal.getAppUserId();
+        if (securityContext.getAuthentication().isAuthenticated()) {
+            if (!securityContext.getAuthentication().getPrincipal().equals("anonymousUser")) {
+                principal = (AppUser) securityContext.getAuthentication().getPrincipal();
+                id = principal.getAppUserId();
+            }
         }
         return id;
     }
