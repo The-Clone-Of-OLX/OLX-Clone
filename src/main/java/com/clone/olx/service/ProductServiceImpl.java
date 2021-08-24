@@ -43,4 +43,9 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
+    @Override
+    public Iterable<Product> findAll() {
+        return productRepository.findAll();
+    }
+
 }

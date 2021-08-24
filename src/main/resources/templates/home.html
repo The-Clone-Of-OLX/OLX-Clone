@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
         <h2 class="text-start">
-            <a class="navbar-brand" href="#!">OLX Clone</a>
+            <a class="navbar-brand" th:href="@{/home}">OLX Clone</a>
         </h2>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -90,93 +90,20 @@
 <section class="text-center py-5">
     <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div th:each="product : ${products}">
         <div class="col mb-5">
             <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
+                <img src="../assets/img/test-product-photos/BMW-7-Series.jpg"  class="card-img-top" alt="Product Image">
                 <div class="card-body p-4">
                     <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
+                        <h5 class="fw-bolder" th:text="${product.Title}"></h5>
+                        <span th:text="${product.price}"></span>
+                        <span th:text="${product.currency}"></span>
+                        <span th:text="${product.status}"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"  class="card-img-top" alt="Product Image">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder">Fancy Product</h5>
-                        $40.00 - $80.00
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     </div>

@@ -12,4 +12,5 @@ public interface ProductService {
     List<Product> getProductsByTitle(String title);
     List<Product> getProductsByCategory(Category category);
     List<Product> getProductsByAppUserId(UUID appUserId);
+    public Iterable<Product> findAll();
 }
