@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/registration")
+@RequestMapping("")
 public class RegistrationController {
 
     private final AppUserService appUserService;
@@ -20,13 +20,19 @@ public class RegistrationController {
         this.appUserService = appUserService;
     }
 
-    @GetMapping("")
+    @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         model.addAttribute("app_user", new AppUser());
         return "registration-form";
     }
 
-    @PostMapping("/success")
+    @GetMapping("/registration2")
+    public String showRegistrationForm2(Model model) {
+        model.addAttribute("app_user", new AppUser());
+        return "registration-form-2";
+    }
+
+    @PostMapping("/registration/success")
     public String processRegistration(@Validated AppUser appUser, RedirectAttributes redirectAttributes) {
         try {
             appUserService.signUpUser(appUser);
