@@ -108,7 +108,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             <a th:text="${product1.getCurrency().name()}" class="display-2"></a>
             <div class="text-justify">
                 <b style="font-family: Author-Regular">Added date: </b>
-                <a th:text="${product1.getDate()}" class="font-light"></a>
+                <a th:text="${product1.postingDate.toString()}" class="font-light"></a>
             </div>
             <pre style="font-family: Author-Light" th:text="${product1.getDescription()}" class="pre text-justify">
             </pre>

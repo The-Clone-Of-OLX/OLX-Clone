@@ -33,9 +33,9 @@ public class ProductController {
     @GetMapping("/{uuid}")
     public String showProduct(@PathVariable String uuid, Model model) {
         UUID productUUID = UUID.fromString(uuid);
-//        Product product = productService.getProductById(productUUID);
-//        model.addAttribute("product", product);
-//        model.addAttribute("title", product.getTitle());
+        Product product = productService.getProductById(productUUID);
+        model.addAttribute("product1", product);
+        model.addAttribute("title", product.getTitle());
         Product showedProduct = new Product(
                 UUID.fromString("5bd1e73d-d99e-4330-9c07-6cbed90b4329"),
                 "BMW 420d",
@@ -48,11 +48,11 @@ public class ProductController {
                         "Ostatni przegląd wykonany w maju 2021r. (wymiana oleju oraz piasty). \n" +
                         "W październiku 2020r. przy przebiegu 220 000 km wymieniono tarcze i klocki hamulcowe, rozrząd oraz wykonano pełny serwis olejowy. \n" +
                         "Samochód bez wkładu finansowego. Sprzedaję jako osoba prywatna.",
-                Status.AVAILABLE,
+                Status.available,
                 UUID.fromString("3ebca2c6-80e4-40c8-8e67-1911ab85ab31"));
 
-        model.addAttribute("product1", showedProduct);
-        model.addAttribute("user", appUserService.getAppUserByUUID(showedProduct.getAppUserId()));
+//        model.addAttribute("product1", showedProduct);
+        model.addAttribute("user", appUserService.getAppUserByUUID(product.getAppUserId()));
 
         return "product-page";
     }

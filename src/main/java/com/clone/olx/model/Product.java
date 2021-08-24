@@ -5,6 +5,8 @@ import com.clone.olx.enums.Currency;
 import com.clone.olx.enums.Status;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Type;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -25,21 +27,28 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID productId;
     private String title;
+
     private BigDecimal price;
+
+    @Enumerated(EnumType.STRING)
     private Currency currency;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
+
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
+
     private UUID appUserId;
+
     @ElementCollection
+    @Nullable
     private List<UUID> photos;
 
-    @Transient
-    Locale locale = new Locale("en", "PL");
-    @Transient
-    DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
-    @Transient
-    String date = dateFormat.format(new Date());
+    @Type(type = "date")
+    private Date postingDate;
 
     public String getTitle() {
         return title;
