@@ -8,9 +8,14 @@ import java.util.UUID;
 
 public interface ProductService {
     Product saveProduct(Product product);
+
     Product getProductById(UUID productId);
+
     List<Product> getProductsByTitle(String title);
+
     List<Product> getProductsByCategory(Category category);
+
     List<Product> getProductsByAppUserId(UUID appUserId);
+
     public Iterable<Product> findAll();
 }

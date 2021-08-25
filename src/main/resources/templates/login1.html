@@ -18,48 +18,50 @@
 <div class="text-center w-100 row-login">
 
 
-<section class="login-form">
-    <div class="form-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 column-1">
-                    <img class="img-fluid" src="assets/img/black.svg">
-                </div>
-                <div class="col-md-6 column-2" style="width: 70%;">
-                    <form method="post" th:action="@{/login}">
-                        <h2 class="text-start">
-                            <strong>Log in</strong>
-                        </h2>
-                        <div th:if="${param.error}" class="alert alert-danger shadow notification">
-                            Invalid username or password.
-                        </div>
-                        <input th:if="${param.error}" class="form-control border-danger" type="text" name="username"
-                               placeholder="Username">
-                        <input th:if="${param.error}" class="form-control border-danger" type="password" name="password"
-                               placeholder="Password">
+    <section class="login-form">
+        <div class="form-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 column-1">
+                        <img class="img-fluid" src="assets/img/black.svg">
+                    </div>
+                    <div class="col-md-6 column-2" style="width: 70%;">
+                        <form method="post" th:action="@{/login}">
+                            <h2 class="text-start">
+                                <strong>Log in</strong>
+                            </h2>
+                            <div th:if="${param.error}" class="alert alert-danger shadow notification">
+                                Invalid username or password.
+                            </div>
+                            <input th:if="${param.error}" class="form-control border-danger" type="text" name="username"
+                                   placeholder="Username">
+                            <input th:if="${param.error}" class="form-control border-danger" type="password"
+                                   name="password"
+                                   placeholder="Password">
 
-                        <input th:unless="${param.error}" class="form-control" type="text" id="username" name="username"
-                               placeholder="Username">
-                        <input th:unless="${param.error}" class="form-control" type="password" id="password"
-                               name="password"
-                               placeholder="Password">
+                            <input th:unless="${param.error}" class="form-control" type="text" id="username"
+                                   name="username"
+                                   placeholder="Username">
+                            <input th:unless="${param.error}" class="form-control" type="password" id="password"
+                                   name="password"
+                                   placeholder="Password">
 
-                        <button class="btn btn-primary d-block w-100" data-bss-hover-animate="pulse" type="submit">
-                            Log in
-                        </button>
-                        <a class="small-text" href="#" style="padding-top: 20px">
-                            Don't have any account yet? Register Here!
-                        </a>
-                        <button class="btn btn-outline-primary d-block w-100" type="button"
-                                data-bss-hover-animate="pulse" href="#">
-                            Register
-                        </button>
-                    </form>
+                            <button class="btn btn-primary d-block w-100" data-bss-hover-animate="pulse" type="submit">
+                                Log in
+                            </button>
+                            <a class="small-text" href="#" style="padding-top: 20px">
+                                Don't have any account yet? Register Here!
+                            </a>
+                            <button class="btn btn-outline-primary d-block w-100" type="button"
+                                    data-bss-hover-animate="pulse" href="#">
+                                Register
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>

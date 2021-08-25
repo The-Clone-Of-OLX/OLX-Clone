@@ -1,8 +1,6 @@
 package com.clone.olx.service;
 
-import com.clone.olx.model.AppUser;
 import com.clone.olx.requests.AppUserRequest;
-import com.clone.olx.requests.RegistrationRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -39,26 +38,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       http
-               .csrf().disable()
-               .authorizeRequests()
-                    .antMatchers("/assets/**", "/bootstrap/**", "/registration/**", "/user/**", "/greeting","/css/**", "/js/**", "/img/**", "/font/**", "/logos/**", "/home/**", "/product/**")
-               .permitAll()
-               .antMatchers("/**/static/**").authenticated()
-               .anyRequest().authenticated()
-               .and()
-               .formLogin()
-               .loginPage("/login").permitAll()
-                   .usernameParameter("username")
-                   .passwordParameter("password")
-                   .defaultSuccessUrl("/home")
-                   .permitAll()
-               .and()
-                    .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/home").permitAll();
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/assets/**", "/registration/**", "/user/**", "/greeting", "/home/**", "/product/**")
+                .permitAll()
+                .antMatchers("/**/static/**").authenticated()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/home")
+                .permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/home").permitAll();
     }
 
     @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider(){
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(bCryptPasswordEncoder);
         provider.setUserDetailsService(appUserService);

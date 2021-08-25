@@ -1,8 +1,5 @@
 package com.clone.olx.controller;
 
-import com.clone.olx.enums.Category;
-import com.clone.olx.enums.Currency;
-import com.clone.olx.enums.Status;
 import com.clone.olx.model.Product;
 import com.clone.olx.service.AppUserService;
 import com.clone.olx.service.ProductService;
@@ -13,13 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
-import static com.clone.olx.enums.Status.available;
-
 
 @Controller
 @RequestMapping("/home")

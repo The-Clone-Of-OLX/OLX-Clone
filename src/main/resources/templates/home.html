@@ -20,7 +20,8 @@
         <h2 class="text-start">
             <a class="navbar-brand" th:href="@{/home}">OLX Clone</a>
         </h2>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -42,11 +43,18 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-8 col-md-6 col-sm-12 p-0">
-                                        <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
+                                        <input type="text" placeholder="Search..." class="form-control" id="search"
+                                               name="search">
                                     </div>
                                     <div class="col-lg-1 col-md-3 col-sm-12 p-0">
                                         <button type="submit" class="btn btn-base">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-search">
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            </svg>
                                         </button>
                                     </div>
                                 </div>
@@ -57,10 +65,13 @@
             </div>
 
             <div class="btn-group">
-                <button th:unless="${user == ''}" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${user}">
+                <button th:unless="${user == ''}" type="button" class="btn btn-info dropdown-toggle"
+                        data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        th:text="${user}">
                     Login
                 </button>
-                <button th:if="${user == ''}" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button th:if="${user == ''}" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Login
                 </button>
 
@@ -89,23 +100,24 @@
 <!--Section: Block Content-->
 <section class="text-center py-5">
     <div class="container px-4 px-lg-5 mt-5">
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        <div th:each="product : ${products}">
-        <div class="col mb-5">
-            <a class="card h-100" th:href="@{/product/{id}(id=${product.productId})}">
-                <img src="../assets/img/test-product-photos/BMW-7-Series.jpg"  class="card-img-top" alt="Product Image" th:href="@{/product/${product.productId}}">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h5 class="fw-bolder" th:text="${product.title}"></h5>
-                        <span th:text="${product.price}"></span>
-                        <span th:text="${product.currency}"></span>
-                        <span th:text="${product.status}"></span>
-                    </div>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div th:each="product : ${products}">
+                <div class="col mb-5">
+                    <a class="card h-100" th:href="@{/product/{id}(id=${product.productId})}">
+                        <img src="../assets/img/test-product-photos/BMW-7-Series.jpg" class="card-img-top"
+                             alt="Product Image" th:href="@{/product/${product.productId}}">
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder" th:text="${product.title}"></h5>
+                                <span th:text="${product.price}"></span>
+                                <span th:text="${product.currency}"></span>
+                                <span th:text="${product.status}"></span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </a>
+            </div>
         </div>
-        </div>
-    </div>
     </div>
 
 </section>

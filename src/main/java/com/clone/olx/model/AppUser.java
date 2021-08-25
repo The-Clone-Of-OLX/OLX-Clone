@@ -14,9 +14,6 @@ import java.util.*;
 @Getter
 @Setter
 @ToString
-//@RequiredArgsConstructor
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

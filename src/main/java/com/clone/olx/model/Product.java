@@ -4,13 +4,11 @@ import com.clone.olx.enums.Category;
 import com.clone.olx.enums.Currency;
 import com.clone.olx.enums.Status;
 import lombok.*;
-import org.hibernate.Hibernate;
 import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.util.*;
 
 @Table(name = "product_details")
@@ -19,9 +17,6 @@ import java.util.*;
 @Setter
 @ToString
 @RequiredArgsConstructor
-//@RequiredArgsConstructor
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
