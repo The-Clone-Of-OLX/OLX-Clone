@@ -5,84 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>OLX-Home</title>
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" sizes="150x150" href="assets/img/black.svg">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/black.png"/>
+    <link rel="apple-touch-icon" href="../assets/img/black.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Author-Bold.css">
     <link rel="stylesheet" href="assets/css/Author-Extralight.css">
     <link rel="stylesheet" href="assets/css/Author-Semibold.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/home-style.css">
+    <link rel="stylesheet" href="../assets/css/home-style.css">
+    <script src="https://kit.fontawesome.com/5af5eb3f80.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container px-4 px-lg-5">
         <h2 class="text-start">
-            <a class="navbar-brand" th:href="@{/home}">OLX Clone</a>
+            <a class="navbar-brand" th:href="@{/home}">
+                <img src="assets/img/black.png" width="30%" class="d-inline-block align-top" th:href="@{/home}" alt="">
+            </a>
         </h2>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="card search-form">
-                <div class="card-body p-0">
-                    <form id="search-form">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Location</option>
-                                            <option>London</option>
-                                            <option>Boston</option>
-                                            <option>Mumbai</option>
-                                            <option>New York</option>
-                                            <option>Toronto</option>
-                                            <option>Paris</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-8 col-md-6 col-sm-12 p-0">
-                                        <input type="text" placeholder="Search..." class="form-control" id="search"
-                                               name="search">
-                                    </div>
-                                    <div class="col-lg-1 col-md-3 col-sm-12 p-0">
-                                        <button type="submit" class="btn btn-base">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-search">
-                                                <circle cx="11" cy="11" r="8"></circle>
-                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                            </svg>
-                                        </button>
+        <div class="col-md-6">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="card search-form">
+                    <div class="card-body p-0">
+                        <form id="search-form">
+                            <div class="row">
+                                <div class="col-13">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="display: flex">
+                                            <div style="margin: auto; text-align: end">
+                                                <i class="fas fa-lg fa-map-marker-alt"></i>
+                                            </div>
+                                            <div>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option>Location</option>
+                                                    <option>London</option>
+                                                    <option>Boston</option>
+                                                    <option>Mumbai</option>
+                                                    <option>New York</option>
+                                                    <option>Toronto</option>
+                                                    <option>Paris</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-7 col-md-5 col-sm-11 p-0">
+                                            <input type="text" placeholder="Search..." class="form-control" id="search"
+                                                   name="search">
+                                        </div>
+                                        <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                                            <button type="submit" class="btn btn-base">
+                                                <i class="fas fa-lg fa-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button th:unless="${user == ''}" type="button" class="btn btn-info dropdown-toggle"
-                        data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        th:text="${user}">
-                    Login
-                </button>
-                <button th:if="${user == ''}" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Login
-                </button>
-
-                <div class="dropdown-menu">
-                    <a th:unless="${user == ''}" class="dropdown-item" th:href="@{/logout}">Logout</a>
-                    <a th:if="${user == ''}" class="dropdown-item" th:href="@{/login}">Login</a>
-                    <a th:if="${user == ''}" class="dropdown-item" th:href="@{/registration}">Registration</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div class="btn-group text-center">
+            <button th:unless="${user == ''}" type="button" class="btn dropdown-toggle"
+                    data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                <span th:text="'Welcome, ' + ${user}"></span>
+            </button>
+            <button th:if="${user == ''}" type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                My Account
+            </button>
+
+            <div class="dropdown-menu">
+                <a th:unless="${user == ''}" class="dropdown-item" th:href="@{/logout}">Logout</a>
+                <a th:if="${user == ''}" class="dropdown-item" th:href="@{/login}">Login</a>
+                <a th:if="${user == ''}" class="dropdown-item" th:href="@{/registration}">Register</a>
+            </div>
+        </div>
     </div>
 </nav>
 <!-- Body Started -->
@@ -91,7 +100,7 @@
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Welcome To The OLX Clone</h1>
-            <p class="lead fw-normal text-white-50 mb-0">You can find any thing second Hand over Here!!</p>
+            <p class="lead fw-normal text-white-50 mb-0">You can find anything second Hand over Here!!</p>
         </div>
     </div>
 </header>

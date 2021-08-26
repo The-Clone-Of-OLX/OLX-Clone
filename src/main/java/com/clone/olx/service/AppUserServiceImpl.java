@@ -103,7 +103,8 @@ public class AppUserServiceImpl implements AppUserService {
             if (!securityContext.getAuthentication().getPrincipal().equals("anonymousUser")) {
                 principal = (AppUser) securityContext.getAuthentication().getPrincipal();
                 username = securityContext.getAuthentication().getName();
-                name = principal.getFirstName() + " " + principal.getLastName() + " (" + username + ") ";
+                name = principal.getFirstName();
+//                name = principal.getFirstName() + " " + principal.getLastName() + " (" + username + ") ";
             }
         }
         return name;

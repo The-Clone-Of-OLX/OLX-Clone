@@ -10,14 +10,20 @@
     <title th:text="${product1.getTitle()}"></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/css/Author-Bold.css">
     <link rel="stylesheet" href="../assets/css/Author-Extralight.css">
     <link rel="stylesheet" href="../assets/css/Author-Semibold.css">
     <link rel="stylesheet" href="../assets/css/product-style.css">
     <link rel="stylesheet" href="../assets/css/author.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -29,6 +35,34 @@
     <script src="https://kit.fontawesome.com/5af5eb3f80.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container px-4 px-lg-5">
+        <div class="text-start">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img src="../assets/img/black.png" width="30%" class="d-inline-block align-top" th:href="@{/home}" alt="">
+            </a>
+        </div>
+
+        <div class="btn-group text-center">
+            <button th:unless="${user == ''}" type="button" class="btn dropdown-toggle"
+                    data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                <span th:text="'Welcome, ' + ${user}"></span>
+            </button>
+            <button th:if="${user == ''}" type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                My Account
+            </button>
+
+            <div class="dropdown-menu">
+                <a th:unless="${user == ''}" class="dropdown-item" th:href="@{/logout}">Logout</a>
+                <a th:if="${user == ''}" class="dropdown-item" th:href="@{/login}">Login</a>
+                <a th:if="${user == ''}" class="dropdown-item" th:href="@{/registration}">Register</a>
+            </div>
+        </div>
+    </div>
+</nav>
 <div class="container text-center">
     <a th:text="${product1.getTitle()}" class="display-1"></a>
     <div class="row justify-content-around">
@@ -66,38 +100,38 @@
         <div class="col-md-3 text-center column-rounded">
             <img class="rounded-circle img-fluid" src="../assets/img/test-product-photos/user-pic.jpg"
                  style="margin-top: 20%"/>
-            <div th:text="${user == null} ? 'none' : ${user.get().getFirstName()} + ' ' + ${user.get().getLastName()}"
+            <div th:text="${productuser == null} ? 'none' : ${productuser.get().getFirstName()} + ' ' + ${productuser.get().getLastName()}"
                  class="display-2"></div>
-            <div th:text="${user == null} ? 'none' : ${user.get().getCountry()} + ', ' + ${user.get().getTown()}"
+            <div th:text="${productuser == null} ? 'none' : ${productuser.get().getCountry()} + ', ' + ${productuser.get().getTown()}"
                  class="font-light"></div>
             <iframe allowfullscreen frameborder="0"
-                    th:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&amp;q=' + ${user.get().getCountry()} + '%2C+' + ${user.get().getTown()} + '&amp;zoom=6'"
-                    loading="lazy" class="rounded-pill" width="100%" height="200px">
+                    th:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&amp;q=' + ${productuser.get().getCountry()} + '%2C+' + ${productuser.get().getTown()} + '&amp;zoom=6'"
+                    loading="lazy" class="rounded" width="100%" height="200px">
             </iframe>
 
-            <button th:unless="${user.get().getPhoneNumber() == null}" class="btn btn-primary" type="button"
+            <button th:unless="${productuser.get().getPhoneNumber() == null}" class="btn btn-primary" type="button"
                     data-toggle="collapse" data-target="#phoneNumber"
                     aria-expanded="false" aria-controls="collapseExample">
-                <i class="fa-solid fa-phone"></i>
+                <i class=" fas fa-solid fa-phone"></i>
                 Phone
             </button>
 
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#email"
                     aria-expanded="false" aria-controls="collapseExample">
-                <i class="fa-solid fa-phone"></i>
+                <i class="fas fa-solid fa-envelope"></i>
                 E-mail
             </button>
 
             <div class="collapse" id="phoneNumber">
                 <div class="card card-body">
-                    <a th:text="${user == null} ? 'none' : ${user.get().getPhoneNumber()}"
-                       th:href="'tel:' + ${user.get().getPhoneNumber()}"></a>
+                    <a th:text="${productuser == null} ? 'none' : ${productuser.get().getPhoneNumber()}"
+                       th:href="'tel:' + ${productuser.get().getPhoneNumber()}"></a>
                 </div>
             </div>
             <div class="collapse" id="email">
                 <div class="card card-body">
-                    <a th:text="${user == null} ? 'none' : ${user.get().getEmail()}"
-                       th:href="'mailto:' + ${user.get().getEmail()}"></a>
+                    <a th:text="${productuser == null} ? 'none' : ${productuser.get().getEmail()}"
+                       th:href="'mailto:' + ${productuser.get().getEmail()}"></a>
                 </div>
             </div>
         </div>

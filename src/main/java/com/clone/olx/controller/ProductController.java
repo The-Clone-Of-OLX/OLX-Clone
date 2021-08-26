@@ -1,8 +1,5 @@
 package com.clone.olx.controller;
 
-import com.clone.olx.enums.Category;
-import com.clone.olx.enums.Currency;
-import com.clone.olx.enums.Status;
 import com.clone.olx.model.Product;
 import com.clone.olx.service.AppUserService;
 import com.clone.olx.service.ProductService;
@@ -33,7 +30,9 @@ public class ProductController {
         Product product = productService.getProductById(productUUID);
         model.addAttribute("product1", product);
         model.addAttribute("title", product.getTitle());
-        model.addAttribute("user", appUserService.getAppUserByUUID(product.getAppUserId()));
+        model.addAttribute("productuser", appUserService.getAppUserByUUID(product.getAppUserId()));
+        model.addAttribute("user", appUserService.getUsername());
+
 
         return "product-page";
     }

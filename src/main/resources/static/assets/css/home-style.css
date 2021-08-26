@@ -4,6 +4,16 @@
   margin-top: 0rem;
 }
 
+.card {
+  cursor: pointer;
+  width: 100%;
+  color: #30323B;
+  text-decoration: none;
+}
+.card:hover {
+  color: #30323B;
+}
+
 .search-form input {
   height: 100%;
   background: transparent;
