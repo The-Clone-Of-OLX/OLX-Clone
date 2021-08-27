@@ -76,7 +76,7 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public String signUpUser(AppUser appUser) {
+    public void signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
                 .findByUsername(appUser.getUsername())
                 .isPresent();
@@ -90,7 +90,24 @@ public class AppUserServiceImpl implements AppUserService {
         appUser.setPassword(encodedPassword);
 
         appUserRepository.save(appUser);
-        return "";
+    }
+
+    @Override
+    public void updateAppUser(UUID uuid, String country, String town, String phoneNumber) throws IllegalAccessException {
+        if (appUserRepository.findById(uuid).isPresent()) {
+            if (!country.equals(""))
+                appUserRepository.findById(uuid).get().setCountry(country);
+
+            if (!town.equals(""))
+                appUserRepository.findById(uuid).get().setTown(town);
+
+            if (!phoneNumber.equals(""))
+                appUserRepository.findById(uuid).get().setPhoneNumber(phoneNumber);
+
+        } else {
+            throw new IllegalAccessException("No such appUser");
+        }
+
     }
 
     @Override

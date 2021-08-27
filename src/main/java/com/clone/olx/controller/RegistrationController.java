@@ -26,16 +26,23 @@ public class RegistrationController {
         return "registration-form";
     }
 
-    @GetMapping("/registration2")
-    public String showRegistrationForm2(Model model) {
-        model.addAttribute("app_user", new AppUser());
+    @PostMapping("/registration2")
+    public String showRegistrationForm2(Model model, @Validated AppUser appUser, RedirectAttributes redirectAttributes) {
+        model.addAttribute("app_user", appUser);
+        try {
+            appUserService.signUpUser(appUser);
+        } catch (Exception e) {
+            redirectAttributes.addAttribute("registration-failed", true);
+            return "redirect:/registration";
+        }
         return "registration-form-2";
     }
 
     @PostMapping("/registration/success")
     public String processRegistration(@Validated AppUser appUser, RedirectAttributes redirectAttributes) {
         try {
-            appUserService.signUpUser(appUser);
+            appUserService.updateAppUser(appUser.getAppUserId(),
+                    appUser.getCountry(), appUser.getTown(), appUser.getPhoneNumber());
         } catch (Exception e) {
             redirectAttributes.addAttribute("registration-failed", true);
             return "redirect:/registration";

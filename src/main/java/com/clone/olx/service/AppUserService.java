@@ -13,11 +13,13 @@ public interface AppUserService extends UserDetailsService {
 
     AppUser saveAppUser(AppUser appUser);
 
-    String signUpUser(AppUser appUser);
+    void signUpUser(AppUser appUser);
 
     Optional<AppUser> getAppUser(String username);
 
     Optional<AppUser> getAppUserByUUID(UUID uuid);
+
+    void updateAppUser(UUID uuid, String country, String town, String phoneNumber) throws IllegalAccessException;
 
     List<AppUser> getUsers();
 
