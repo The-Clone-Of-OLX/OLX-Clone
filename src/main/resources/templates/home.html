@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>OLX-Home</title>
     <meta property="og:type" content="website">
-    <link rel="shortcut icon" type="image/png" href="../assets/img/black.png"/>
-    <link rel="apple-touch-icon" href="../assets/img/black.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Author-Bold.css">
-    <link rel="stylesheet" href="assets/css/Author-Extralight.css">
-    <link rel="stylesheet" href="assets/css/Author-Semibold.css">
+    <link rel="shortcut icon" type="image/png" href="./assets/img/black.png"/>
+    <link rel="apple-touch-icon" href="./assets/img/black.png">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/Author-Bold.css">
+    <link rel="stylesheet" href="./assets/css/Author-Extralight.css">
+    <link rel="stylesheet" href="./assets/css/Author-Semibold.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="../assets/css/home-style.css">
+    <link rel="stylesheet" href="./assets/css/home-style.css">
+    <script src="./assets/js/google-autocomplete.js"></script>
     <script src="https://kit.fontawesome.com/5af5eb3f80.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
     <div class="container px-4 px-lg-5">
         <h2 class="text-start">
             <a class="navbar-brand" th:href="@{/home}">
-                <img src="assets/img/black.png" width="30%" class="d-inline-block align-top" th:href="@{/home}" alt="">
+                <img src="./assets/img/black.png" width="30%" class="d-inline-block align-top" th:href="@{/home}" alt="">
             </a>
         </h2>
         <div class="col-md-6">
@@ -39,20 +40,13 @@
                             <div class="row">
                                 <div class="col-13">
                                     <div class="row no-gutters">
-                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="display: flex">
+                                        <div class="col-lg-4 col-md-3 col-sm-12 p-0" style="display: flex">
                                             <div style="margin: auto; text-align: end">
                                                 <i class="fas fa-lg fa-map-marker-alt"></i>
                                             </div>
                                             <div>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option>Location</option>
-                                                    <option>London</option>
-                                                    <option>Boston</option>
-                                                    <option>Mumbai</option>
-                                                    <option>New York</option>
-                                                    <option>Toronto</option>
-                                                    <option>Paris</option>
-                                                </select>
+                                                <input type="text" placeholder="Address" class="form-control"
+                                                       id="autocomplete"/>
                                             </div>
 
                                         </div>
@@ -94,6 +88,7 @@
         </div>
     </div>
 </nav>
+
 <!-- Body Started -->
 <!--Header-->
 <header class="bg-dark py-5">
@@ -113,7 +108,7 @@
             <div th:each="product : ${products}">
                 <div class="col mb-5">
                     <a class="card h-100" th:href="@{/product/{id}(id=${product.productId})}">
-                        <img src="../assets/img/test-product-photos/BMW-7-Series.jpg" class="card-img-top"
+                        <img src="./assets/img/test-product-photos/BMW-7-Series.jpg" class="card-img-top"
                              alt="Product Image" th:href="@{/product/${product.productId}}">
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -138,7 +133,9 @@
     </div>
 </footer>
 
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/bs-init.js"></script>
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="./assets/js/bs-init.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&libraries=places&callback=initAutocomplete"
+        async defer></script>
 </body>
 </html>
