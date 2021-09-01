@@ -62,7 +62,7 @@ CREATE TYPE status AS ENUM (
 CREATE TABLE product_details (
     product_id UUID NOT NULL,
     title VARCHAR (30) NOT NULL,
-    price MONEY NOT NULL,
+    price numeric(19,2) NOT NULL,
     currency currency NOT NULL,
     category category NOT NULL,
     description TEXT,
