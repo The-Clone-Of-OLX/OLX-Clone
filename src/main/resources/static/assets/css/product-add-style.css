@@ -1,0 +1,32 @@
+.column-rounded {
+    /*background-color: rgb(249, 249, 249);*/
+    /*box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 30px;*/
+    /*border-radius: 27px;*/
+    display: table;
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    border-width: 5px;
+    border-radius: 27px;
+    background: #f9f9f9;
+}
+
+.column-rounded form {
+    width: 100%;
+    padding: 4% 3%;
+    color: #30323B;
+    background: rgb(249, 249, 249);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price-column {
+    display: flex;
+}
+
+.column-rounded input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

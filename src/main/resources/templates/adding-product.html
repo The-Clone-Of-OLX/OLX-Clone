@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" type="image/png" href="./assets/img/black.png"/>
+    <link rel="apple-touch-icon" href="./assets/img/black.png">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/Author-Bold.css">
+    <link rel="stylesheet" href="../assets/css/Author-Extralight.css">
+    <link rel="stylesheet" href="../assets/css/Author-Semibold.css">
+    <link rel="stylesheet" href="../assets/css/product-add-style.css">
+    <link rel="stylesheet" href="../assets/css/author.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5af5eb3f80.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container px-4 px-lg-5">
+        <div class="text-start">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img src="../assets/img/black.png" width="30%" class="d-inline-block align-top" th:href="@{/home}"
+                     alt="">
+            </a>
+        </div>
+
+        <div class="btn-group text-center">
+            <button th:unless="${user == ''}" type="button" class="btn dropdown-toggle"
+                    data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                <span th:text="'Welcome, ' + ${user}"></span>
+            </button>
+            <button th:if="${user == ''}" type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                My Account
+            </button>
+
+            <div class="dropdown-menu">
+                <a th:unless="${user == ''}" class="dropdown-item" th:href="@{/logout}">Logout</a>
+                <a th:if="${user == ''}" class="dropdown-item" th:href="@{/login}">Login</a>
+                <a th:if="${user == ''}" class="dropdown-item" th:href="@{/registration}">Register</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container text-center">
+    <a class="display-1" style="font-family: Author-Semibold">Add Product</a>
+    <div class="row justify-content-around">
+        <div class="col-md-10 column-rounded">
+            <form class="text-center">
+                <input class="form-control" type="text" id="title" placeholder="Title">
+                <div class="price-column justify-content-between">
+                    <input class="form-control col-md-5" type="number" id="price" placeholder="Price">
+                    <input class="form-control col-md-5" type="text" id="currency" placeholder="Currency">
+<!--                    //autocomplete-->
+                </div>
+
+                <input class="form-control" type="text" id="category" placeholder="Category">
+<!--                //autocomplete-->
+                <input class="form-control" type="text" id="description" placeholder="Description">
+                <input class="form-control" type="file" id="photo">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

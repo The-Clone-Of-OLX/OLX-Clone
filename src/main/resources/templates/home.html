@@ -136,7 +136,8 @@
                 <div class="col mb-5">
                     <a class="card h-100" th:href="@{/product/{id}(id=${product.productId})}">
                         <img src="./assets/img/test-product-photos/BMW-7-Series.jpg" class="card-img-top"
-                             alt="Product Image" th:href="@{/product/${product.productId}}">
+<!--                             alt="Product Image" th:href="@{/product/show/{id}(id=${product.productId})}"-->
+                        >
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder" th:text="${product.title}"></h5>

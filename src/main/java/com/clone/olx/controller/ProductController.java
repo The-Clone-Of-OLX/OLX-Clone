@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.UUID;
@@ -21,6 +22,12 @@ public class ProductController {
     public ProductController(ProductService productService, AppUserService appUserService) {
         this.productService = productService;
         this.appUserService = appUserService;
+    }
+
+    @GetMapping("/adding")
+    public String addProduct(Model model){
+        model.addAttribute("user", appUserService.getUsername());
+        return "adding-product";
     }
 
     //test method
