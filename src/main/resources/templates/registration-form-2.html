@@ -26,23 +26,18 @@
                         <img class="img-fluid" src="assets/img/black.svg">
                     </div>
                     <div class="col-md-6 column-2" style="width: 70%;">
-                        <form method="post" th:action="@{/login}">
+                        <form method="post" th:action="@{/registration2}" th:object="${appUserData}">
                             <h2 class="text-start">
                                 <strong>Register</strong>
                             </h2>
-                            <div th:if="${param.error}" class="alert alert-danger shadow notification">
-                                Username is already used.
+                            <div class="alert alert-danger shadow notification" th:if="${#fields.hasErrors('*')}">
+                                <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
                             </div>
-                            <input th:if="${param.error}" class="form-control border-danger" type="text"
-                                   name="firstName"
-                                   placeholder="Country">
-                            <input th:if="${param.error}" class="form-control border-danger" type="password"
-                                   name="lastName"
-                                   placeholder="Town">
+                            <input type="text" class="form-control" th:field="*{phoneNumber}" name="phoneNumber"  placeholder="Phone number" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{country}" name="country"  placeholder="Country" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{town}" name="town"  placeholder="Town" th:errorclass="border-danger">
 
-                            <input th:unless="${param.error}" class="form-control" type="text" id="username"
-                                   name="username"
-                                   placeholder="Phone number">
+
                             <button class="btn btn-primary d-block w-100" data-bss-hover-animate="pulse" type="submit">
                                 Register
                             </button>

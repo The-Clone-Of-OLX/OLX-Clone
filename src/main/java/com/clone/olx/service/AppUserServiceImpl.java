@@ -1,9 +1,11 @@
 package com.clone.olx.service;
 
 import com.clone.olx.model.AppUser;
+import com.clone.olx.model.AppUserData;
 import com.clone.olx.repository.AppUserRepository;
 import com.clone.olx.requests.AppUserRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -141,5 +143,13 @@ public class AppUserServiceImpl implements AppUserService {
         }
         return id;
     }
+
+    @Override
+    public void register(AppUserData appUserData){
+        AppUser userEntity = new AppUser();
+        BeanUtils.copyProperties(appUserData, userEntity);
+        appUserRepository.save(userEntity);
+    }
+
 
 }

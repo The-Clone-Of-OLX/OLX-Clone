@@ -1,6 +1,7 @@
 package com.clone.olx.service;
 
 import com.clone.olx.model.AppUser;
+import com.clone.olx.model.AppUserData;
 import com.clone.olx.requests.AppUserRequest;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -26,4 +27,6 @@ public interface AppUserService extends UserDetailsService {
     String getUsername();
 
     UUID getUUID();
+
+    void register(AppUserData appUserData);
 }

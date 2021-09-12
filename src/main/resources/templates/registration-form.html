@@ -26,38 +26,19 @@
                         <img class="img-fluid" src="assets/img/black.svg">
                     </div>
                     <div class="col-md-6 column-2" style="width: 70%;">
-                        <form method="post" th:action="@{/registration2}" th:object="${app_user}">
+                        <form method="post" th:action="@{/registration}" th:object="${appUserData}">
                             <h2 class="text-start">
                                 <strong>Register</strong>
                             </h2>
-                            <div th:if="${param.error}" class="alert alert-danger shadow notification">
-                                Username is already used.
+                            <div class="alert alert-danger shadow notification" th:if="${#fields.hasErrors('*')}">
+                                <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
                             </div>
-                            <input th:if="${param.error}" th:field="*{firstName}" class="form-control border-danger"
-                                   type="text"
-                                   name="firstName"
-                                   placeholder="First name*">
-                            <input th:if="${param.error}" th:field="*{lastName}" class="form-control border-danger"
-                                   type="password"
-                                   name="lastName"
-                                   placeholder="Last name*">
-
-                            <input th:unless="${param.error}" th:field="*{username}" class="form-control" type="text"
-                                   id="username"
-                                   name="username"
-                                   placeholder="Username*">
-                            <input th:unless="${param.error}" th:field="*{email}" class="form-control" type="text"
-                                   id="email"
-                                   name="email"
-                                   placeholder="Email*">
-                            <input th:unless="${param.error}" th:field="*{password}" class="form-control"
-                                   type="password" id="password"
-                                   name="password"
-                                   placeholder="Password*">
-                            <input th:unless="${param.error}" th:field="*{password}" class="form-control"
-                                   type="password" id="confirmPassword"
-                                   name="password"
-                                   placeholder="Confirm password*">
+                            <input type="text" class="form-control" th:field="*{firstName}" name="firstName"  placeholder="First Name*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{lastName}" name="lastName" placeholder="Last Name*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{username}" name="username" placeholder="Username*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{email}" name="email" placeholder="email*" th:errorclass="border-danger">
+                            <input type="password" class="form-control" th:field="*{password}" name="password" placeholder="Password*" th:errorclass="border-danger">
+                            <input type="password" class="form-control" th:field="*{password}" name="confirmPassword" placeholder="Confirm password*" th:errorclass="border-danger">
 
                             <button class="btn btn-outline-primary d-block w-100" data-bss-hover-animate="pulse"
                                     type="submit">

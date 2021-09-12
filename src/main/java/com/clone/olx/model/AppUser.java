@@ -20,29 +20,17 @@ public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID appUserId;
-
-    @NotEmpty(message = "User's first name cannot be empty.")
-    @Size(min = 3, max = 250)
     private String firstName;
-
-    @NotEmpty(message = "User's last name cannot be empty.")
-    @Size(min = 3, max = 250)
     private String lastName;
-
-    @NotEmpty(message = "User's username cannot be empty.")
-    @Size(min = 3, max = 50)
+    @Column(unique = true)
     private String username;
-
-    @NotEmpty(message = "User's username cannot be empty.")
-    @Size(min = 8, max = 50)
     private String password;
-
     private String country;
     private String town;
     private String phoneNumber;
-
-    @NotEmpty(message = "User's email cannot be empty.")
+    @Column(unique = true)
     private String email;
+
     @ElementCollection
     private List<UUID> likedProducts;
     private UUID avatar;
