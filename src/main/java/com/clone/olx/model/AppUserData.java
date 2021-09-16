@@ -18,7 +18,7 @@ public class AppUserData implements Serializable {
     private String firstName;
     @NotEmpty(message = "Last name can not be empty")
     private String lastName;
-    @NotBlank(message = "Username can not be empty")
+    @NotEmpty(message = "Username can not be empty")
     private String username;
     @NotEmpty(message = "Password can not be empty")
     private String password;

@@ -149,6 +149,9 @@ public class AppUserServiceImpl implements AppUserService {
         AppUser userEntity = new AppUser();
         BeanUtils.copyProperties(appUserData, userEntity);
         appUserRepository.save(userEntity);
+        //add checking if email is free      //exceptions
+        //add checking if username is free   //exceptions
+        //try to sing up and sing in user
     }
 
 

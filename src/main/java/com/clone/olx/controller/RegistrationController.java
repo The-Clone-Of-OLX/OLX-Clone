@@ -16,6 +16,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("")
+@SessionAttributes("appUserData")
 public class RegistrationController {
 
     private final AppUserService appUserService;
@@ -24,50 +25,44 @@ public class RegistrationController {
         this.appUserService = appUserService;
     }
 
+    @ModelAttribute("appUserData")
+    public AppUserData appUserData() {
+        return new AppUserData();
+    }
+
     @GetMapping("/registration")
-    public String showRegistrationForm(Model model) {
+    public String showRegistrationForm(@ModelAttribute("appUserData") AppUserData appUserData, Model model) {
         model.addAttribute("appUserData", new AppUserData());
         return "registration-form";
     }
 
     @PostMapping("/registration")
-    public String submitRegistrationForm(@Valid AppUserData appUserData, final BindingResult bindingResult, final Model model){
-        model.addAttribute("registration-form", appUserData);
+    public String submitRegistrationForm(@Valid @ModelAttribute("appUserData") AppUserData appUserData,
+                                         final BindingResult bindingResult, RedirectAttributes attributes){
         if(bindingResult.hasErrors()){
-            //model.addAttribute("registration-form", appUserData);
+            attributes.addFlashAttribute("appUserData", appUserData);
             return "/registration-form";
         }
-        //model.addAttribute("registration-form", appUserData);
+        attributes.addFlashAttribute("appUserData", appUserData);
         return "registration-form-2";
     }
 
 
-//    @PostMapping("/registration2")
-//    public String showRegistrationForm2(Model model, @Validated AppUser appUser, RedirectAttributes redirectAttributes) {
-//        model.addAttribute("app_user", appUser);
-//        try {
-//            appUserService.signUpUser(appUser);
-//        } catch (Exception e) {
-//            redirectAttributes.addAttribute("registration-failed", true);
-//            return "redirect:/registration";
-//        }
-//        return "registration-form-2";
-//    }
-
     @GetMapping("/registration2")
-    public String showRegistrationForm2(Model model, @Valid AppUserData appUserData) {
-        model.addAttribute("appUserData", appUserData);
+    public String showRegistrationForm2(ModelMap model) {
         return "registration-form-2";
     }
 
     @PostMapping("/registration2")
-    public String submitRegistrationForm2(final BindingResult bindingResult, final Model model, AppUserData appUserData){
+    public String submitRegistrationForm2(@Valid @ModelAttribute("appUserData") AppUserData appUserData,
+                                          final BindingResult bindingResult, RedirectAttributes attributes){
         if(bindingResult.hasErrors()){
-            model.addAttribute("registrationForm", appUserData);
+            attributes.addFlashAttribute("appUserData", appUserData);
             return "registration-form-2";
         }
-        model.addAttribute("registrationForm", appUserData);
-        return "login1"; //for now
+        attributes.addFlashAttribute("appUserData", appUserData);
+
+        return "login1"; //for now, need to finish register method in service
     }
 
     @PostMapping("/registration/success")
