@@ -33,12 +33,18 @@
                             <div class="alert alert-danger shadow notification" th:if="${#fields.hasErrors('*')}">
                                 <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
                             </div>
-                            <input type="text" class="form-control" th:field="*{firstName}" name="firstName"  placeholder="First Name*" th:errorclass="border-danger">
-                            <input type="text" class="form-control" th:field="*{lastName}" name="lastName" placeholder="Last Name*" th:errorclass="border-danger">
-                            <input type="text" class="form-control" th:field="*{username}" name="username" placeholder="Username*" th:errorclass="border-danger">
-                            <input type="text" class="form-control" th:field="*{email}" name="email" placeholder="email*" th:errorclass="border-danger">
-                            <input type="password" class="form-control" th:field="*{password}" name="password" placeholder="Password*" th:errorclass="border-danger">
-                            <input type="password" class="form-control" th:field="*{password}" name="confirmPassword" placeholder="Confirm password*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{firstName}" name="firstName"
+                                   placeholder="First Name*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{lastName}" name="lastName"
+                                   placeholder="Last Name*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{username}" name="username"
+                                   placeholder="Username*" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{email}" name="email"
+                                   placeholder="email*" th:errorclass="border-danger">
+                            <input type="password" class="form-control" th:field="*{password}" name="password"
+                                   placeholder="Password*" th:errorclass="border-danger">
+                            <input type="password" class="form-control" th:field="*{password}" name="confirmPassword"
+                                   placeholder="Confirm password*" th:errorclass="border-danger">
 
                             <button class="btn btn-outline-primary d-block w-100" data-bss-hover-animate="pulse"
                                     type="submit">

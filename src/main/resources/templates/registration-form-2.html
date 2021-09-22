@@ -7,6 +7,7 @@
     <meta property="og:type" content="website">
     <link rel="shortcut icon" type="image/png" href="assets/img/black.png"/>
     <link rel="apple-touch-icon" href="assets/img/black.png">
+    <script src="assets/js/google-autocomplete.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Author-Bold.css">
     <link rel="stylesheet" href="assets/css/Author-Extralight.css">
@@ -33,9 +34,12 @@
                             <div class="alert alert-danger shadow notification" th:if="${#fields.hasErrors('*')}">
                                 <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
                             </div>
-                            <input type="text" class="form-control" th:field="*{phoneNumber}" name="phoneNumber"  placeholder="Phone number" th:errorclass="border-danger">
-                            <input type="text" class="form-control" th:field="*{country}" name="country"  placeholder="Country" th:errorclass="border-danger">
-                            <input type="text" class="form-control" th:field="*{town}" name="town"  placeholder="Town" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{phoneNumber}" name="phoneNumber"
+                                   placeholder="Phone number" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{country}" id="autocomplete"
+                                   name="country" placeholder="Country" th:errorclass="border-danger">
+                            <input type="text" class="form-control" th:field="*{town}" id="town" name="town"
+                                   placeholder="Town" th:errorclass="border-danger">
 
 
                             <button class="btn btn-primary d-block w-100" data-bss-hover-animate="pulse" type="submit">
@@ -51,5 +55,7 @@
 </div>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIzpJVkUpB8ncgLjjsJd7Y9TBgmiETifU&libraries=places&callback=initAutocomplete"
+        async defer></script>
 </body>
 </html>
