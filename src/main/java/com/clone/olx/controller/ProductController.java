@@ -1,5 +1,7 @@
 package com.clone.olx.controller;
 
+import com.clone.olx.enums.Category;
+import com.clone.olx.enums.Currency;
 import com.clone.olx.model.Product;
 import com.clone.olx.service.AppUserService;
 import com.clone.olx.service.ProductService;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 @Controller
@@ -27,6 +30,8 @@ public class ProductController {
     @GetMapping("/adding")
     public String addProduct(Model model){
         model.addAttribute("user", appUserService.getUsername());
+        model.addAttribute("currencyList", Currency.values());
+        model.addAttribute("categoryList", Category.values());
         return "adding-product";
     }
 
