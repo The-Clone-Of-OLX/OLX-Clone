@@ -165,19 +165,17 @@ button, input, optgroup, select, textarea {
 
 .s01 form .inner-form .input-field.third-wrap {
     width: 180px;
-    margin-right: 0;
 }
 .s01 form .inner-form .input-field.third-wrap .btn-search {
     height: 100%;
     width: 100%;
-    background: #ff6d2d;
-    white-space: nowrap;
-    border-radius: 40.5px;
-    font-size: 20px;
     color: #fff;
-    transition: all .2s ease-out,color .2s ease-out;
-    border: 0;
-    cursor: pointer;
+    background: #fe6d2c;
+    border: none;
+    border-radius: 13px;
+    text-shadow: 0.5px 0.5px 1px black;
+    font-family: Author-Semibold;
+    font-size: 23px;
 }
 button, html [type=button], [type=reset], [type=submit] {
     -webkit-appearance: button;
