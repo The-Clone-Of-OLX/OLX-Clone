@@ -1,7 +1,16 @@
+body {
+    font-family: Author-Extralight;
+}
+
 .search-form {
   width: 80%;
   margin: 0 auto;
   margin-top: 0rem;
+}
+
+.searchInput::placeholder {
+    font-family: Author-Extralight;
+    opacity: 1;
 }
 
 .card {
