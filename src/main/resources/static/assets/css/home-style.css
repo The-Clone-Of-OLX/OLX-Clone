@@ -100,24 +100,23 @@
 
 .s01 form .inner-form {
     padding: 19px 18px;
-    display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: center;
     -ms-flex-align: center;
     align-items: center;
 }
+
 .s01 form {
     width: 100%;
     max-width: 1230px;
 }
-.s01 form .inner-form .input-field {
-    margin-right: 30px;
-    height: 68px;
-}
+
 .s01 form .inner-form .input-field.first-wrap {
     -ms-flex-positive: 1;
+    min-width: 180px;
     flex-grow: 1;
     box-shadow: 1px 1px 12px -1px;
 }
@@ -125,7 +124,7 @@
 .s01 form .inner-form .input-field input {
     height: 100%;
     background: #fff;
-    border-radius: .5px;
+    border-radius: 8px;
     border: 0;
     display: block;
     width: 100%;
@@ -154,24 +153,16 @@ button, input, optgroup, select, textarea {
     padding: 5px;
 }
 .s01 form .inner-form .input-field.second-wrap {
-    width: 32.77%;
+    /*width: 32.77%;*/
+    flex-grow: 1;
     min-width: 180px;
     box-shadow: 1px 1px 12px -1px;
 }
 .s01 form .inner-form .input-field {
-    margin-right: 30px;
+    margin: 10px 30px 10px 30px;
     height: 68px;
 }
-.s01 form .inner-form .input-field input {
-    height: 100%;
-    background: #fff;
-    border-radius: 43.5px;
-    border: 0;
-    display: block;
-    width: 100%;
-    padding: 10px 32px;
-    font-size: 20px;
-}
+
 .s01 form .inner-form .input-field.third-wrap {
     width: 180px;
     margin-right: 0;
