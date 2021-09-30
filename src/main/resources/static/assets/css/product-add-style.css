@@ -1,3 +1,11 @@
+body {
+    font-family: Author-Regular;
+}
+
+nav button {
+    font-family: Author-Regular;
+}
+
 .column-rounded {
     /*background-color: rgb(249, 249, 249);*/
     /*box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 30px;*/

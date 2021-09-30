@@ -1,11 +1,15 @@
 body {
-    font-family: Author-Extralight;
+    font-family: Author-Regular;
+}
+
+nav button {
+    font-family: Author-Regular;
 }
 
 .search-form {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 0rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 0rem;
 }
 
 .searchInput::placeholder {
@@ -14,97 +18,98 @@ body {
 }
 
 .card {
-  cursor: pointer;
-  width: 100%;
-  color: #30323B;
-  text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    color: #30323B;
+    text-decoration: none;
 }
+
 .card:hover {
-  color: #30323B;
+    color: #30323B;
 }
 
 .search-form input {
-  height: 100%;
-  background: transparent;
-  border: 0;
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  height: 100%;
-  font-size: 1rem;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    height: 100%;
+    font-size: 1rem;
 }
 
 .search-form select {
-  background: transparent;
-  border: 0;
-  padding: 1rem;
-  height: 100%;
-  font-size: 1rem;
+    background: transparent;
+    border: 0;
+    padding: 1rem;
+    height: 100%;
+    font-size: 1rem;
 }
 
 .search-form select:focus {
-  border: 0;
+    border: 0;
 }
 
 .search-form button {
-  height: 100%;
-  width: 100%;
-  font-size: 1rem;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
 }
 
 .search-form button svg {
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
 }
 
 .search-body {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .search-body .search-filters .filter-list {
-  margin-bottom: 1.3rem;
+    margin-bottom: 1.3rem;
 }
 
 .search-body .search-filters .filter-list .title {
-  color: #3c4142;
-  margin-bottom: 1rem;
+    color: #3c4142;
+    margin-bottom: 1rem;
 }
 
 .search-body .search-filters .filter-list .filter-text {
-  color: #727686;
+    color: #727686;
 }
 
 .search-body .search-result .result-header {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .search-body .search-result .result-header .records {
-  color: #3c4142;
+    color: #3c4142;
 }
 
 .search-body .search-result .result-header .result-actions {
-  text-align: right;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .search-body .search-result .result-header .result-actions .result-sorting {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .search-body .search-result .result-header .result-actions .result-sorting span {
-  flex-shrink: 0;
-  font-size: 0.8125rem;
+    flex-shrink: 0;
+    font-size: 0.8125rem;
 }
 
 .search-body .search-result .result-header .result-actions .result-sorting select {
-  color: #68CBD7;
+    color: #68CBD7;
 }
 
 .search-body .search-result .result-header .result-actions .result-sorting select option {
-  color: #3c4142;
+    color: #3c4142;
 }
 
 .s01 form .inner-form {
@@ -140,9 +145,11 @@ body {
     padding: 10px 32px;
     font-size: 20px;
 }
+
 button, input {
     overflow: visible;
 }
+
 button, input, optgroup, select, textarea {
     font-family: sans-serif;
     font-size: 100%;
@@ -158,15 +165,17 @@ button, input, optgroup, select, textarea {
     justify-content: center;
     -ms-flex-align: center;
     align-items: center;
-    font-family: poppins,sans-serif;
+    font-family: poppins, sans-serif;
     padding: 5px;
 }
+
 .s01 form .inner-form .input-field.second-wrap {
     /*width: 32.77%;*/
     flex-grow: 1;
     min-width: 180px;
     box-shadow: 1px 1px 12px -1px;
 }
+
 .s01 form .inner-form .input-field {
     margin: 10px 30px 10px 30px;
     height: 68px;
@@ -175,6 +184,7 @@ button, input, optgroup, select, textarea {
 .s01 form .inner-form .input-field.third-wrap {
     width: 180px;
 }
+
 .s01 form .inner-form .input-field.third-wrap .btn-search {
     height: 100%;
     width: 100%;
@@ -186,21 +196,25 @@ button, input, optgroup, select, textarea {
     font-family: Author-Semibold;
     font-size: 23px;
 }
+
 button, html [type=button], [type=reset], [type=submit] {
     -webkit-appearance: button;
 }
+
 button, select {
     text-transform: none;
 }
+
 button, input {
     overflow: visible;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .search-body .search-filters {
-    display: flex;
-  }
-  .search-body .search-filters .filter-list {
-    margin-right: 1rem;
-  }
+    .search-body .search-filters {
+        display: flex;
+    }
+
+    .search-body .search-filters .filter-list {
+        margin-right: 1rem;
+    }
 }

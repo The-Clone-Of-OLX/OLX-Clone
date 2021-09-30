@@ -1,3 +1,11 @@
+body {
+    font-family: Author-Regular;
+}
+
+nav button {
+    font-family: Author-Regular;
+}
+
 .display-1 {
     font-size: 52px;
     line-height: 1.5;

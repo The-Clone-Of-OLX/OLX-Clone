@@ -1,16 +1,19 @@
 .row-login {
-    position:absolute; top: 25%;
+    position: absolute;
+    top: 25%;
 }
 
 @media (max-width: 1200px) {
     .row-login {
-        position:absolute; top: 15%;
+        position: absolute;
+        top: 15%;
     }
 }
 
 @media (max-width: 768px) {
     .row-login {
-        position:absolute; top: 0%;
+        position: absolute;
+        top: 0%;
     }
 }
 
