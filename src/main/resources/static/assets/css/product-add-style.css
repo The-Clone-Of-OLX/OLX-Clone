@@ -38,3 +38,24 @@ nav button {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+form .btn-primary {
+    background: #fe6d2c;
+    border: none;
+    border-radius: 13px;
+    padding: 3px;
+    box-shadow: none;
+    margin-top: 35px;
+    text-shadow: none;
+    outline: none !important;
+    font-family: Author-Semibold;
+    font-size: 23px;
+}
+
+form .btn-primary:hover {
+    background: #fc9e46;
+}
+
+form .btn-primary:active {
+    background: #1a1e21;
+}
