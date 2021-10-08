@@ -49,14 +49,27 @@ public class Product {
         return title;
     }
 
-    public Product(UUID productId, String title, BigDecimal price, Currency currency, Category category, String description, Status status, UUID appUserId) {
-        this.productId = productId;
+    public Product(UUID productId, String title, BigDecimal price, String currency, String category, String description, Status status, UUID appUserId) {
+//        this.productId = productId;
         this.title = title;
         this.price = price;
-        this.currency = currency;
-        this.category = category;
+        this.currency = Currency.valueOf(currency);
+        this.category = Category.valueOf(category);
         this.description = description;
         this.status = status;
         this.appUserId = appUserId;
+    }
+
+    public Product(UUID appUserId) {
+        this.productId = UUID.randomUUID();
+        this.appUserId = appUserId;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = Currency.valueOf(currency);
+    }
+
+    public void setCategory(String category) {
+        this.category = Category.valueOf(category);
     }
 }

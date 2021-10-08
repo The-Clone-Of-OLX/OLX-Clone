@@ -1,0 +1,14 @@
+h1 {
+    font-family: Author-Bold;
+}
+
+.container-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
+}
+
+.btn-primary:hover{
+    text-decoration: none;
+}
