@@ -8,9 +8,6 @@
     <link rel="shortcut icon" type="image/png" href="./assets/img/black.png"/>
     <link rel="apple-touch-icon" href="./assets/img/black.png">
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/Author-Bold.css">
-    <link rel="stylesheet" href="./assets/css/Author-Extralight.css">
-    <link rel="stylesheet" href="./assets/css/Author-Semibold.css">
     <link rel="stylesheet" href="./assets/css/author.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -46,6 +43,10 @@
                 <a th:if="${user == ''}" class="dropdown-item" th:href="@{/login}">Login</a>
                 <a th:if="${user == ''}" class="dropdown-item" th:href="@{/registration}">Register</a>
             </div>
+        </div>
+
+        <div class="text-center">
+            <a class="btn" th:href="@{/adding}"> Add Product</a>
         </div>
     </div>
 </nav>

@@ -20,7 +20,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product saveProduct(Product product) {
-        return productRepository.save(product);
+        productRepository.saveProduct(
+                product.getProductId().toString(),
+                product.getTitle(),
+                product.getPrice(),
+                product.getCurrency().toString(),
+                product.getCategory().toString(),
+                product.getDescription(),
+                product.getAppUserId().toString()
+        );
+        return productRepository.findProductByProductId(UUID.fromString("2158edbb-97d6-4740-949c-e7180a7730f7"));
     }
 
     @Override
