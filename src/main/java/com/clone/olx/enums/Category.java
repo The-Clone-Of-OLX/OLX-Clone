@@ -1,5 +1,5 @@
 package com.clone.olx.enums;
 
 public enum Category {
-    Cars, ELECTRONICS, Sport
+    Cars, Electronics, Sport, Other
 }

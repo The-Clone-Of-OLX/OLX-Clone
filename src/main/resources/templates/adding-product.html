@@ -76,7 +76,7 @@
         <div class="col-md-10 column-rounded">
             <form class="text-center" method="post" th:action="@{/success/product}" th:object="${product}">
                 <input hidden th:field="*{productId}">
-                <input hidden th:fiel="*{appUserId}">
+                <input hidden th:field="*{appUserId}">
                 <input th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">
                 <div class="price-column justify-content-between">
                     <input th:field="*{price}" class="form-control col-md-5" type="number" id="price" placeholder="Price">
