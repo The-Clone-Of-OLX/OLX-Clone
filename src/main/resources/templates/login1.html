@@ -8,9 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/img/black.png"/>
     <link rel="apple-touch-icon" href="assets/img/black.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Author-Bold.css">
-    <link rel="stylesheet" href="assets/css/Author-Extralight.css">
-    <link rel="stylesheet" href="assets/css/Author-Semibold.css">
+    <link rel="stylesheet" href="assets/css/author.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/login-style.css">
 </head>
@@ -49,13 +47,13 @@
                             <button class="btn btn-primary d-block w-100" data-bss-hover-animate="pulse" type="submit">
                                 Log in
                             </button>
-                            <a class="small-text" href="#" style="padding-top: 20px">
+                            <a class="small-text" th:href="@{/registration}" style="padding-top: 20px">
                                 Don't have any account yet? Register Here!
                             </a>
-                            <button class="btn btn-outline-primary d-block w-100" type="button"
-                                    data-bss-hover-animate="pulse" href="#">
+                            <a class="btn btn-outline-primary d-block w-100" type="button"
+                                    data-bss-hover-animate="pulse" th:href="@{/registration}">
                                 Register
-                            </button>
+                            </a>
                         </form>
                     </div>
                 </div>

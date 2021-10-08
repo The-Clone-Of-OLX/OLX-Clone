@@ -23,9 +23,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/Author-Bold.css">
-    <link rel="stylesheet" href="../assets/css/Author-Extralight.css">
-    <link rel="stylesheet" href="../assets/css/Author-Semibold.css">
     <link rel="stylesheet" href="../assets/css/product-add-style.css">
     <link rel="stylesheet" href="../assets/css/author.css">
     <link rel="stylesheet" href="../assets/css/autocomplete.css">
@@ -77,19 +74,21 @@
     <a class="display-1" style="font-family: Author-Semibold">Add Product</a>
     <div class="row justify-content-around">
         <div class="col-md-10 column-rounded">
-            <form class="text-center">
-                <input class="form-control" type="text" id="title" placeholder="Title">
+            <form class="text-center" method="post" th:action="@{/success/product}" th:object="${product}">
+                <input hidden th:field="*{productId}">
+                <input hidden th:fiel="*{appUserId}">
+                <input th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">
                 <div class="price-column justify-content-between">
-                    <input class="form-control col-md-5" type="number" id="price" placeholder="Price">
-                    <input class="form-control col-md-5 autocomplete-currency autocomplete" type="text" id="currency"
+                    <input th:field="*{price}" class="form-control col-md-5" type="number" id="price" placeholder="Price">
+                    <input th:field="*{currency}" class="form-control col-md-5 autocomplete-currency autocomplete" type="text" id="currency"
                            placeholder="Currency">
                     <!--                    //autocomplete-->
                 </div>
 
-                <input class="form-control autocomplete-category autocomplete" type="text" id="category"
+                <input th:field="*{category}" class="form-control autocomplete-category autocomplete" type="text" id="category"
                        placeholder="Category">
                 <!--                //autocomplete-->
-                <textarea rows="10" cols="10" class="form-control" type="text" id="description"
+                <textarea th:field="*{description}" rows="10" cols="10" class="form-control" type="text" id="description"
                           placeholder="Description"></textarea>
                 <input class="form-control" id="browse" type="file" onchange="previewFiles()" multiple>
                 <div id="preview"></div>
